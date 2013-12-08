@@ -1,0 +1,80 @@
+<template name="editPage">
+  <div id="editPage">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <form class="form-horizontal" role="form">           
+            <div class="form-group">
+              <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+              <div class="col-lg-10">
+                <input type="text" value="{{title}}" class="form-control" id="inputTitle" placeholder="Title">
+              </div>
+            </div>                               
+            <div class="form-group">
+              <label for="inputIntroduction" class="col-lg-2 control-label">Introduction</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="inputIntroduction" placeholder="Some introduction...">{{introduction}}</textarea>
+              </div>
+            </div>                                
+            <div class="form-group">
+              <label for="inputText" class="col-lg-2 control-label">Text</label>
+              <div class="col-lg-10">
+                <div class="wmd-panel">
+                  <div id="wmd-button-bar"></div>
+                    <textarea class="wmd-input form-control" rows="10" id="wmd-input">
+                      {{markdown}}
+                     </textarea>       
+                  </div>                
+              </div>
+            </div> 
+            <div class="form-group">
+              <div class="col-md-offset-2 col-xs-12 col-sm-12 col-md-6">
+                <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+              </div>
+            </div>                         
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-default">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr>       
+        <br /> <br />      
+      <hr>
+      <div class="container row">
+        <div class="entry-date entry-date-padding text-center col-sm-2 col-xs-2 col-md-2">
+          <span class="h4">
+            {{giveMonth submitted}}
+          </span>
+          <span class="h4">
+            {{giveDay submitted}}
+          </span>           
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-6">       
+          <div class="text-left">    
+            <h3><a href="{{pathFor 'postPage'}}"  id="showInputTitle">{{title}}</a></h3>
+          </div>          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-2 col-xs-12 col-sm-12 col-md-6">
+          <div class="text-left">  
+            <h4 id="showInputIntroduction" >
+              {{introduction}}
+            </h4>
+          </div>
+        </div>        
+      </div>  
+      <div class="row">
+         <div class="col-md-offset-2 col-xs-12 col-sm-12 col-md-6">
+           <div id="showInputText" class="text-left">  
+             {{{text}}}
+           </div>           
+          </div>  
+      </div>
+      <hr>   
+    </div>
+  </div>
+</template>

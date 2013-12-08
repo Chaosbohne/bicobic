@@ -1,0 +1,118 @@
+<template name="contact">
+  <div id="contact">
+    <div class="padder container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="text-center">
+            <p><strong>If you have any questions, problems, whishes, hints, job offers or anything else ...</strong><p>          
+          </div>
+        </div>
+      </div>
+    </div>  
+      <div class="padder container">
+        <div class="row">
+          <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-xs-4 col-sm-4 col-md-4">
+            <address>
+              <strong>Rico Ruszewski</strong><br>
+              <a href="mailto:bicobic@gmx.de">bicobic@gmx.de</a><br>
+              Zirkusstraße 6<br>
+              01069 Dresden<br>
+              Germany<br>
+            </address>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="text-center">
+              <p><strong>Feel free to write me a postcard, emails<br> or use my humble contactform.</strong><p>
+              </div>
+          </div>          
+        </div>
+      </div>
+      <div class="padder container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <form class="form-horizontal" role="form">
+              {{#if contactFormSendError}}
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-center text-danger"><strong>Something went wrong :( </strong><p>
+                  </div>
+                </div>
+              {{/if}}
+              {{#if contactFormSendSuccess}}
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-center text-success"><strong>Message was successfully send :)</strong><p>
+                  </div>
+                </div>                              
+              {{/if}}                
+              <div class="form-group">
+                <label for="inputName" class="col-lg-2 control-label">Name</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputName" placeholder="Name">
+                </div>
+              </div>                
+              {{#if contactFormNameErrorToSmall}}
+                <div class="form-group">                  
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-danger"><strong>I bet your fullname has some more characters ... </strong><p>
+                  </div>
+                </div>
+              {{/if}}
+              {{#if contactFormNameErrorToBig}}
+                <div class="form-group">                  
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-danger"><strong>Puh quite a huge name ... </strong><p>
+                  </div>
+                </div>            
+              {{/if}}                
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+              </div>                
+              {{#if contactFormEmailError}}
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-danger"><strong>Your email was not correct! Try it again ...</strong><p>
+                  </div>
+                </div>
+              {{/if}}    
+              {{#if contactFormEmailErrorToBig}}
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-danger"><strong>Your email was not correct! Try it again ...</strong><p>
+                  </div>
+                </div>
+              {{/if}}                    
+              <div class="form-group">
+                <label for="inputMessage" class="col-lg-2 control-label">Message</label>
+                <div class="col-lg-10">
+                  <textarea class="form-control" rows="5" id="inputMessage" placeholder="Some beautiful content..."></textarea>
+                </div>
+              </div>
+              {{#if contactFormTextErrorToSmall}}
+                <div class="form-group">                
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-danger"><strong>The better you describe your concern the easier it is for me to understand ...</strong><p>
+                  </div>                
+              </div>
+              {{/if}} 
+              {{#if contactFormTextErrorToBig}}
+                <div class="form-group">                
+                  <div class="col-md-offset-2 col-xs-offset-2 col-sm-offset-2 col-lg-10">
+                    <p class="text-danger"><strong>Keep it small and simple ...</strong><p>
+                  </div>                
+                </div>
+              {{/if}}                   
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                  <button type="submit" class="btn btn-default">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>      
+  </div>
+</template>

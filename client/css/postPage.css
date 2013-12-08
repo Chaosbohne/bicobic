@@ -1,0 +1,14 @@
+#postPage p{
+  padding: .75em 0;
+  vertical-align: baseline;
+  font-size: 100%;
+  line-height: 1.4em;
+  font-style: normal;
+  font-weight: 400;  
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-size: 18px;  
+}

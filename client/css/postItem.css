@@ -1,0 +1,29 @@
+#postItem .postItemContainerBig {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#postItem .postItemContainerSmall {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#postItem .container span {
+  padding-left: 5px;
+}
+
+#postPage .container span {
+  padding-left: 5px;
+}
+
+.entry-date-padding {
+  padding-top: 27px;
+}
+
+.entry-date span{
+  display: block;
+}
+
+html body {
+  background-color: #fafafa;
+}

@@ -1,0 +1,34 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="/css/pagedown.css">
+  
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>  
+  <script type="text/javascript" src="/js/Markdown.Converter.js"></script>  
+  <script type="text/javascript" src="/js/Markdown.Sanitizer.js"></script>  
+  <script type="text/javascript" src="/js/Markdown.Editor.js"></script> 
+  <title>Bicobic</title>
+</head>
+
+<template name="layout">
+  <header role="banner">
+    {{yield 'header'}}
+  </header>
+  
+  <nav>
+    {{yield 'navigation'}}
+  </nav>
+  
+  <div class="fill"> 
+    {{{yield}}}
+  </div>  
+  
+  <footer>
+    {{yield 'footer'}}
+  </footer>
+
+</template>
+  
