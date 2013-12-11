@@ -35,7 +35,7 @@ Handlebars.registerHelper('giveMonth', function(submitted) {
 
 Handlebars.registerHelper('giveDay', function(submitted) {
   var d = new Date(this.submitted);
-  var curr_day = d.getDay();
+  var curr_day = d.getDate();
   return curr_day;            
 });
 
