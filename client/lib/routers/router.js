@@ -8,7 +8,8 @@ Router.configure({
   yieldTemplates: {
     'header': {to: 'header'},
     'navigation': {to: 'navigation'},
-    'footer': {to: 'footer'}
+    'footer': {to: 'footer'},
+    'ganalytics': {to: 'ganalytics'}
   }
 });
 
