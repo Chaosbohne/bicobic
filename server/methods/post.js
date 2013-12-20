@@ -12,7 +12,7 @@ Meteor.methods({
       author: user.username,
       title: 'Title',
       introduction: 'Introduction',
-      text: 'Text',
+      markdownText: '',
       submitted: new Date().getTime(),
       upvoters: [], 
       votes: 0,
@@ -29,12 +29,12 @@ Meteor.methods({
     }  
 
     //var Converter = new pagedown.Converter();
-    var safeConverter = pagedown.getSanitizingConverter();
+    //var safeConverter = pagedown.getSanitizingConverter();
     
     //console.log(Converter.makeHtml("**I am bold!** Hello <script>doEvil();</script>"));    
     //console.log(safeConverter.makeHtml("**I am bold!** Hello <script>doEvil();</script>"));
     
-    var text = safeConverter.makeHtml(updatePost.text);
+    //var text = safeConverter.makeHtml(updatePost.text);
     
     Posts.update({
       _id: updatePost.postId,
@@ -42,8 +42,7 @@ Meteor.methods({
     }, {$set: {
       title: updatePost.title,
       introduction: updatePost.introduction,
-      text: text,
-      markdown: updatePost.text}
+      markdownText: updatePost.markdownText}
     });
     
     Posts.update({
@@ -52,8 +51,7 @@ Meteor.methods({
     }, {$set: {
       title: updatePost.title,
       introduction: updatePost.introduction,
-      text: text,
-      markdown: updatePost.text,
+      markdownText: updatePost.markdownText,
       submitted: new Date().getTime()}
     });
   },

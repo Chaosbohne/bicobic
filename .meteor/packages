@@ -12,3 +12,4 @@ accounts-password
 email
 iron-router
 meteor-pagedown
+showdown

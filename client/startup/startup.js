@@ -12,7 +12,7 @@ Meteor.startup (function () {
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 */
-  
+  isEpiceditor = false;
   isGanalyticsLoaded = false;
   myScriptLoader = function funcMyScriptLoader(jsEl, callback) {
     if (window.attachEvent) {

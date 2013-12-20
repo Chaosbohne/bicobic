@@ -19,19 +19,9 @@
             <div class="form-group">
               <label for="inputText" class="col-lg-2 control-label">Text</label>
               <div class="col-lg-10">
-                <div class="wmd-panel">
-                  <div id="wmd-button-bar"></div>
-                    <textarea class="wmd-input form-control" rows="10" id="wmd-input">
-                      {{markdown}}
-                     </textarea>       
-                  </div>                
+                {{> epiceditor}}
               </div>
             </div> 
-            <div class="form-group">
-              <div class="col-md-offset-2 col-xs-12 col-sm-12 col-md-6">
-                <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
-              </div>
-            </div>                         
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-10">
                 <button type="submit" class="btn btn-default">Save</button>
@@ -70,9 +60,9 @@
       <div class="row">
          <div class="col-md-offset-2 col-xs-12 col-sm-12 col-md-6">
            <div id="showInputText" class="text-left">  
-             {{{text}}}
+              {{#markdown}}{{markdownText}}{{/markdown}}
            </div>           
-          </div>  
+         </div>  
       </div>
       <hr>   
     </div>
