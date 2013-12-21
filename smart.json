@@ -1,6 +1,6 @@
 {
   "meteor": {
-    "tag": "v0.6.6.2"
+    "tag": "*"
   },  
   "packages": {
     "router": {},
