@@ -1,6 +1,7 @@
 {
   "meteor": {
-    "tag": "v0.6.6.2"
+    "git": "https://github.com/meteor/meteor.git",
+    "tag": "release/0.7.0.1"
   },  
   "packages": {
     "router": {},
