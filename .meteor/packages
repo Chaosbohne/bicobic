@@ -10,4 +10,5 @@ nemo64:bootstrap
 accounts-base
 accounts-password
 mrt:iron-router-progress
+showdown
 

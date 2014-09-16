@@ -15,4 +15,7 @@ Router.map(function () {
       this.route('home', {path: '/'});
   */
   this.route('posts.index', {path: '/'});
+  this.route('post.index', {path: '/post/:name'}); 
+  this.route('register', {path: '/accounts/register'});
+  this.route('login', {path: '/accounts/login'});
 });

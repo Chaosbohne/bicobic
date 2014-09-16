@@ -1,7 +1,7 @@
 
 <template name="PostItem">
   <article class="PostItem">
-    <h2>{{title}}</h2>
+    <h2><a href="{{pathFor 'post.index' name=this.strip}}">{{title}}</a></h2>
     <div class="PostItem-Meta">By {{author}} on {{Date submitted}}</div>
     <div class="PostItem-Introduction">{{introduction}}</div>
   </article>
