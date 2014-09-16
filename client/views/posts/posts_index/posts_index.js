@@ -1,8 +1,8 @@
 
 /*****************************************************************************/
-/* Header: Event Handlers and Helpersss .js*/
+/* PostsIndex: Event Handlers and Helpersss .js*/
 /*****************************************************************************/
-Template.Header.events({
+Template.PostsIndex.events({
   /*
    * Example:
    *  'click .selector': function (e, tmpl) {
@@ -11,7 +11,7 @@ Template.Header.events({
    */
 });
 
-Template.Header.helpers({
+Template.PostsIndex.helpers({
   /*
    * Example:
    *  items: function () {
@@ -21,15 +21,15 @@ Template.Header.helpers({
 });
 
 /*****************************************************************************/
-/* Header: Lifecycle Hooks */
+/* PostsIndex: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Header.created = function () {
+Template.PostsIndex.created = function () {
 };
 
-Template.Header.rendered = function () {
+Template.PostsIndex.rendered = function () {
 };
 
-Template.Header.destroyed = function () {
+Template.PostsIndex.destroyed = function () {
 };
 
 

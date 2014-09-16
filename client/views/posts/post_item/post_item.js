@@ -1,8 +1,8 @@
 
 /*****************************************************************************/
-/* Header: Event Handlers and Helpersss .js*/
+/* PostItem: Event Handlers and Helpersss .js*/
 /*****************************************************************************/
-Template.Header.events({
+Template.PostItem.events({
   /*
    * Example:
    *  'click .selector': function (e, tmpl) {
@@ -11,7 +11,7 @@ Template.Header.events({
    */
 });
 
-Template.Header.helpers({
+Template.PostItem.helpers({
   /*
    * Example:
    *  items: function () {
@@ -21,15 +21,15 @@ Template.Header.helpers({
 });
 
 /*****************************************************************************/
-/* Header: Lifecycle Hooks */
+/* PostItem: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Header.created = function () {
+Template.PostItem.created = function () {
 };
 
-Template.Header.rendered = function () {
+Template.PostItem.rendered = function () {
 };
 
-Template.Header.destroyed = function () {
+Template.PostItem.destroyed = function () {
 };
 
 

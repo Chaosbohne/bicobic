@@ -1,12 +1,35 @@
-<template name="header">
-  <div id="header" class="container">
-    <div class="row header_wrapper">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <h1 class="text-center">
-          <a href="{{pathFor 'postsList'}}">Bicobic.com</a>
-        </h1>
-        <hr>
+<template name="Header">
+  <header role="banner">
+      <div class="navbar-affix">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Closeby</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <div class="container">
+                <ul class="nav navbar-nav">
+                  <li><a href='/'><span class='glyphicon glyphicon-home'></span> Home</a></li>
+                  <li><a href='/fav'><span class='glyphicon glyphicon-star'></span> Favorite</a></li>
+                  <li><a href='/create'><span class='glyphicon glyphicon-pencil'></span> Create</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href='./settings'><span class='glyphicon glyphicon glyphicon-cog'></span> Settings</a></li>
+                  <li><a href='./settings'><span class='glyphicon glyphicon glyphicon-log-out'></span> Logout</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </div>
+        </nav>
       </div>
-    </div>
-  </div>  
+  </header>
 </template>
+

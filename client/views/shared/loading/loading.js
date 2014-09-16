@@ -1,8 +1,8 @@
 
 /*****************************************************************************/
-/* Header: Event Handlers and Helpersss .js*/
+/* Loading: Event Handlers and Helpersss .js*/
 /*****************************************************************************/
-Template.Header.events({
+Template.Loading.events({
   /*
    * Example:
    *  'click .selector': function (e, tmpl) {
@@ -11,7 +11,7 @@ Template.Header.events({
    */
 });
 
-Template.Header.helpers({
+Template.Loading.helpers({
   /*
    * Example:
    *  items: function () {
@@ -21,15 +21,15 @@ Template.Header.helpers({
 });
 
 /*****************************************************************************/
-/* Header: Lifecycle Hooks */
+/* Loading: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Header.created = function () {
+Template.Loading.created = function () {
 };
 
-Template.Header.rendered = function () {
+Template.Loading.rendered = function () {
 };
 
-Template.Header.destroyed = function () {
+Template.Loading.destroyed = function () {
 };
 
 

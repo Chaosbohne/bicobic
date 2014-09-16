@@ -1,0 +1,14 @@
+
+<template name="PostsIndex">
+  <div id="PostsIndex" class="container row">
+    
+    <div class="col-md-3"></div>
+    
+    <div class="col-md-9">
+    {{#each posts}}
+      {{> PostItem}}
+    {{/each}}
+    </div>
+  </div>
+</template>
+

@@ -1,8 +1,8 @@
 
 /*****************************************************************************/
-/* Header: Event Handlers and Helpersss .js*/
+/* MasterLayout: Event Handlers and Helpersss .js*/
 /*****************************************************************************/
-Template.Header.events({
+Template.MasterLayout.events({
   /*
    * Example:
    *  'click .selector': function (e, tmpl) {
@@ -11,7 +11,7 @@ Template.Header.events({
    */
 });
 
-Template.Header.helpers({
+Template.MasterLayout.helpers({
   /*
    * Example:
    *  items: function () {
@@ -21,15 +21,15 @@ Template.Header.helpers({
 });
 
 /*****************************************************************************/
-/* Header: Lifecycle Hooks */
+/* MasterLayout: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Header.created = function () {
+Template.MasterLayout.created = function () {
 };
 
-Template.Header.rendered = function () {
+Template.MasterLayout.rendered = function () {
 };
 
-Template.Header.destroyed = function () {
+Template.MasterLayout.destroyed = function () {
 };
 
 
