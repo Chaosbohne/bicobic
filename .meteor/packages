@@ -3,13 +3,11 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-app-packages
-insecure
-preserve-inputs
+meteor-platform
+iron:router
+less
+nemo64:bootstrap
 accounts-base
-accounts-ui
 accounts-password
-email
-iron-router
-meteor-pagedown
-showdown
+mrt:iron-router-progress
+
