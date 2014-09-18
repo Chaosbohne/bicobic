@@ -3,6 +3,11 @@ RegisterController = RouteController.extend({
     'Header': {to: 'Header'}
   },    
   
+  onRun:function() {
+    Session.set('registerFormError', false);
+    Session.set('registerFormSuccess', false);
+  },
+  
   waitOn: function () {
   },
 
@@ -11,5 +16,10 @@ RegisterController = RouteController.extend({
 
   action: function () {
     this.render();
-  } 
+  },
+  
+  onStop: function () {
+    Session.set('registerFormError', null);
+    Session.set('registerFormSuccess', null);
+  }   
 });

@@ -1,6 +1,6 @@
 if(Posts.find().count() === 0) {
 
-  var userId = Accounts.createUser({
+  var userId = '123asdaqd123';/*Accounts.createUser({
     username: 'name',
     password: 'password',
     email: 'bicobic@gmx.de',
@@ -8,6 +8,7 @@ if(Posts.find().count() === 0) {
       name: 'Rico Ruszewski'
     }
   });
+  */
 
   var rico = Meteor.users.findOne(userId);
 
