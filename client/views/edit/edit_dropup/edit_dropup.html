@@ -1,0 +1,8 @@
+
+<template name="EditDropup">
+  <div id="EditDropup" class="btn-group btn-group-sm">
+    <button type="button" class="save btn btn-default"><span class="glyphicon {{#if saveStatus}} glyphicon-floppy-saved {{else}} glyphicon glyphicon-floppy-save {{/if}}"></span></button>
+    <button type="button" class="searchPopup btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+    {{> EditUpload}}
+  </div>
+</template>

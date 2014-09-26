@@ -1,0 +1,11 @@
+
+<template name="EditIndex">
+  {{#with post}}
+    {{> EditSaveStatus}}
+    {{> EditDropup}}
+    <div id="editor">{{markdownText}}</div>
+    <div id="markdown">{{#markdown}} {{{content}}} {{/markdown}}</div>  
+  {{/with}}
+  {{> EditSearch}}
+</template>
+

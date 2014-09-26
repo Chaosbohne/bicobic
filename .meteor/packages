@@ -11,4 +11,8 @@ accounts-base
 accounts-password
 mrt:iron-router-progress
 showdown
+cfs:standard-packages
+cfs:filesystem
+cfs:s3
+cfs:graphicsmagick
 

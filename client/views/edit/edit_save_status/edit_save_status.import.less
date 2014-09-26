@@ -1,0 +1,28 @@
+/*****************************************************************************/
+/* EditSaveStatus: Style */
+/*****************************************************************************/
+
+.EditSaveStatus {
+  position: absolute;
+  top: 2px;
+  left: 45%;
+  z-index: 9999;
+}
+
+/* Standard syntax */
+@keyframes fadeoutFrame {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fadeoutFrame {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.fadeout {
+  -webkit-animation: fadeoutFrame 5s; /* Chrome, Safari, Opera */
+  animation: fadeoutFrame 5s;
+  opacity: 0;
+}

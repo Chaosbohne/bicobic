@@ -30,21 +30,21 @@
   "wells":                true,
   "close":                true,
 
-  "component-animations": false,
-  "dropdowns":            false,
-  "modals":               false,
-  "tooltip":              false,
-  "popovers":             false,
-  "carousel":             false,
+  "component-animations": true,
+  "dropdowns":            true,
+  "modals":               true,
+  "tooltip":              true,
+  "popovers":             true,
+  "carousel":             true,
   
-  "affix":                false,
-  "alert":                false,
-  "button":               false,
-  "collapse":             false,
-  "scrollspy":            false,
-  "tab":                  false,
-  "transition":           false,
+  "affix":                true,
+  "alert":                true,
+  "button":               true,
+  "collapse":             true,
+  "scrollspy":            true,
+  "tab":                  true,
+  "transition":           true,
 
-  "utilities":            false,
-  "responsive-utilities": false
+  "utilities":            true,
+  "responsive-utilities": true
 }}

@@ -4,6 +4,10 @@
     <h2><a href="{{pathFor 'post.index' name=this.strip}}">{{title}}</a></h2>
     <div class="PostItem-Meta">By {{author}} on {{Date submitted}}</div>
     <div class="PostItem-Introduction">{{introduction}}</div>
+    {{#if currentUser}} 
+      <a href="{{pathFor 'edit.index' name=this.strip}}" class="btn btn-primary">Edit</a>
+      <button id="publish">Publish</button>
+    {{/if}}
   </article>
 </template>
 
