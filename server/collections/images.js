@@ -7,15 +7,15 @@
 
 Images.allow({
   insert: function (userId, doc) {
-    return true;
+    return (userId && doc.metadata.owner === userId);
   },
 
   update: function (userId, doc, fieldNames, modifier) {
-    return true;
+    return (userId && doc.metadata.owner === userId);
   },
 
   remove: function (userId, doc) {
-    return true;
+    return (userId && doc.metadata.owner === userId);
   },
   download: function(userId) {
     return true;

@@ -4,20 +4,20 @@ PostIndexController = RouteController.extend({
   },  
   
   findQuery: function() {
-    return {};
+    return {strippedTitle: this.params.name};
   },
   
   waitOn: function () {
-      return [Meteor.subscribe('posts_index')];
+    return [Meteor.subscribe('post_index_by_name', this.params.name)];
   },
 
-  posts: function() {
-    return Posts.find(this.findQuery());
+  post: function() {
+    return Posts.findOne(this.findQuery());
   },
   
   data: function () {
     return {
-      posts : this.posts()
+      post : this.post()
     };
   },
 

@@ -4,7 +4,7 @@ EditIndexController = RouteController.extend({
   },  
   
   postQuery: function() {
-    return {strip: this.params.name};
+    return {_id: this.params.id};
   },
   
   imageQuery: function() {
@@ -12,7 +12,7 @@ EditIndexController = RouteController.extend({
   },
   
   waitOn: function () {
-      return [Meteor.subscribe('posts_index'), Meteor.subscribe('images_index')];
+      return [Meteor.subscribe('post_index_by_id', this.params.id), Meteor.subscribe('images_index')];
   },
 
   post: function() {

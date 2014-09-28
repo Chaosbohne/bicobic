@@ -18,7 +18,7 @@ Template.EditIndex.helpers({
    *    return Items.find();
    *  }
    */
-  content: function() {
+  showDownContent: function() {
     return Session.get('showDownContent');
   }
 });
@@ -30,6 +30,8 @@ Template.EditIndex.created = function () {
 };
 
 Template.EditIndex.rendered = function () { 
+  console.log(this);
+  
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/chrome");
     editor.getSession().setMode("ace/mode/markdown");
@@ -45,12 +47,11 @@ Template.EditIndex.rendered = function () {
         this.temp = markdown;
 
       if(markdown != this.temp) {
-        console.log('NOT EQUAL');
         this.temp = markdown;
-        Posts.update({_id : that.data.post._id}, {$set:{markdownText : markdown}}, function(error) {
+        Posts.update({_id : that.data.post._id}, {$set:{content : markdown}}, function(error) {
           if(!error)
             Session.set('editSaveStatus', true);
-        });
+        });        
       }
     }, 10000);
     

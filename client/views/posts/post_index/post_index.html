@@ -1,7 +1,15 @@
 
 <template name="PostIndex">
-  {{#markdown}}
-    {{{markdownText}}}
-  {{/markdown}}
+  <div id="PostIndex" class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2" >
+        {{#with post}}
+          {{#markdown}}
+            {{content}}
+          {{/markdown}}
+        {{/with}}
+      </div>
+    </div>
+  </div>  
 </template>
 

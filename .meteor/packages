@@ -15,4 +15,6 @@ cfs:standard-packages
 cfs:filesystem
 cfs:s3
 cfs:graphicsmagick
+aldeed:simple-schema
+aldeed:collection2
 

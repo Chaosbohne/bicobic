@@ -27,6 +27,7 @@ Template.PostIndex.created = function () {
 };
 
 Template.PostIndex.rendered = function () {
+  console.log(this);
 };
 
 Template.PostIndex.destroyed = function () {

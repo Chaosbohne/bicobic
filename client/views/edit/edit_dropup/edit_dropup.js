@@ -14,7 +14,7 @@ Template.EditDropup.events({
 
     if(editor) {
       var markdown = editor.getValue();
-      Posts.update({_id : this._id}, {$set:{markdownText : markdown}}, function(error) {
+      Posts.update({_id : this._id}, {$set:{content : markdown}}, function(error) {
         if(!error)
           Session.set('editSaveStatus', true);
       });
@@ -46,6 +46,7 @@ Template.EditDropup.created = function () {
 };
 
 Template.EditDropup.rendered = function () {
+  console.log(this);
 };
 
 Template.EditDropup.destroyed = function () {
