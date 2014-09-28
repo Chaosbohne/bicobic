@@ -1,11 +1,5 @@
 Posts = new Meteor.Collection('posts');
 
-
-Posts.strip = function(str) {
-   return  str.toLowerCase().replace(/[^\w ]+/g, "").replace(RegExp(" +", "g"), "-");
-};
-
-
 PostSchema = new SimpleSchema({
   authorId: {
     type: String,
@@ -91,7 +85,7 @@ PostSchema = new SimpleSchema({
   thumbnail: {
     type: String,
     autoValue: function() {
-      var regex = new RegExp('/img src=[\'"]([^\'"]+)/ig');
+      var regex = new RegExp(/img src=[\'"]([^\'"]+)/ig);
       var matches = regex.exec(this.field('html').value);
       if(matches)
         return matches[0];
