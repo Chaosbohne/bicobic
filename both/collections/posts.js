@@ -87,8 +87,9 @@ PostSchema = new SimpleSchema({
     autoValue: function() {
       var regex = new RegExp(/img src=[\'"]([^\'"]+)/ig);
       var matches = regex.exec(this.field('html').value);
+      console.log(matches[1]);
       if(matches)
-        return matches[0];
+        return matches[1] + '&store=thumbs';
       else
         return '' ; //defaultImage
     }
