@@ -9,6 +9,12 @@ Template.Header.events({
    *
    *  }
    */
+  'click .CreatePost':function(event, template) {
+    event.preventDefault();
+    Meteor.call('/app/posts/create', function(error, postId) {
+      Router.go('edit.index', {id: postId});  
+    });
+  }
 });
 
 Template.Header.helpers({

@@ -9,6 +9,10 @@ Template.PostItem.events({
    *
    *  }
    */
+  'click .publish' : function(event, template) {
+    event.preventDefault();
+    Posts.update({_id : this._id}, {$set : {'isPublished' : true}});
+  }
 });
 
 Template.PostItem.helpers({

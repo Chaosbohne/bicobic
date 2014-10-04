@@ -1,18 +1,20 @@
+var PostsIndexSubs = new SubsManager({cacheLimit: 9999, expireIn: 9999});
+
 PostsIndexController = RouteController.extend({
   yieldTemplates: {
     'Header': {to: 'Header'}
   },  
   
   findQuery: function() {
-    return {};
+    return {sort: {submitted : -1}};
   },
   
   waitOn: function () {
-      return [Meteor.subscribe('posts_index')];
+      return [PostsIndexSubs.subscribe('posts_index', this.findQuery())];
   },
 
   posts: function() {
-    return Posts.find(this.findQuery());
+    return Posts.find({}, this.findQuery());
   },
   
   data: function () {

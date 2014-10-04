@@ -47,9 +47,10 @@ PostSchema = new SimpleSchema({
   },
   content: {
     type: String,
+    trim: false,
     autoValue: function() {
       if(this.isInsert) {
-        return "Awesome headline of my new post↵===================↵↵Some introduction about how aweome a awesome post could be.↵↵↵More main Content."
+        return "\n#Awesome headline of my new post \n\nSome introduction about how aweome a awesome post could be.\n\n\nMore main Content."
       }
       
       return this.value;  
@@ -57,59 +58,77 @@ PostSchema = new SimpleSchema({
   },
   html: {
     type: String,
+    trim: false,
     autoValue: function() {
-      var converter = new Showdown.converter();
-      return converter.makeHtml(this.field('content').value);      
+      if(this.isSet) {
+        var converter = new Showdown.converter();
+        return converter.makeHtml(this.field('content').value);      
+      }
     }
   },
   title: {
     type: String,
     autoValue: function() {      
-      var html = this.field('html').value;
-      var h1s = html.match(/<h1(.*?)<\/h1>/g);
-      
-      var matches = _.map(h1s, function(val){ return val.replace(/<\/?h1>/g,'').replace(/<h1(.*?)>/g,''); });
+      if(this.field('html').isSet) {
+        var html = this.field('html').value;
+        var h1s = html.match(/<h1(.*?)<\/h1>/g);
 
-      if(matches)
-        return matches[0];
-      else
-        return 'default Title' ; //defaltTitle
+        var matches = _.map(h1s, function(val){ return val.replace(/<\/?h1>/g,'').replace(/<h1(.*?)>/g,''); });
+
+        if(matches && matches[0])
+          return matches[0];
+        else
+          return 'default Title' ; //defaltTitle
+      }
     }
   },
   strippedTitle: {
     type: String,
     autoValue: function() {
-     return this.field('title').value.toLowerCase().replace(/[^\w ]+/g, "").replace(RegExp(" +", "g"), "-");
+      if(this.field('title').isSet) {
+        return this.field('title').value.toLowerCase().replace(/[^\w ]+/g, "").replace(RegExp(" +", "g"), "-");
+      }
     }    
   },
   thumbnail: {
     type: String,
     autoValue: function() {
-      var regex = new RegExp(/img src=[\'"]([^\'"]+)/ig);
-      var matches = regex.exec(this.field('html').value);
-      console.log(matches[1]);
-      if(matches)
-        return matches[1] + '&store=thumbs';
-      else
-        return '' ; //defaultImage
+      if(this.field('html').isSet) {
+        var regex = new RegExp(/img src=[\'"]([^\'"]+)/ig);
+        var matches = regex.exec(this.field('html').value);
+
+        if(matches && matches[1])
+          return matches[1] + '&store=thumbs';
+        else
+          return '' ; //defaultImage
+      }
     }
   },
   introduction: {
     type: String,
     autoValue: function() {
-      var html = this.field('html').value;
-      var h1s = html.match(/<p>(.*?)<\/p>/g);
-      
-      var matches = _.map(h1s, function(val){ return val.replace(/<\/?p>/g,''); });
+      if(this.field('html').isSet) {
+        var html = this.field('html').value;
+        var h1s = html.match(/<p>(.*?)<\/p>/g);
 
-      if(matches)
-        return matches[0];
-      else
-        return 'default introduction' ; //defaltTitle      
+        var matches = _.map(h1s, function(val){ return val.replace(/<\/?p>/g,''); });
+
+        if(matches && matches[0])
+          return matches[0];
+        else
+          return 'default introduction' ; //defaltTitle  
+      }
     }
   },
   isPublished: {
-    type: Boolean
+    type: Boolean,
+    autoValue: function() {
+      if(this.isInsert)
+        return false;
+      if(this.isUpsert)
+        return false;
+      return this.value;
+    }
   }
 });
 

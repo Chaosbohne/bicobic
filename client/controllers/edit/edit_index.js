@@ -1,3 +1,5 @@
+var EditIndexSubs = new SubsManager({cacheLimit: 5, expireIn: 1440});
+
 EditIndexController = RouteController.extend({
   yieldTemplates: {
     'Header': {to: 'Header'}
@@ -12,7 +14,7 @@ EditIndexController = RouteController.extend({
   },
   
   waitOn: function () {
-      return [Meteor.subscribe('post_index_by_id', this.params.id), Meteor.subscribe('images_index')];
+      return [EditIndexSubs.subscribe('post_index_by_id', this.params.id), Meteor.subscribe('images_index')];
   },
 
   post: function() {

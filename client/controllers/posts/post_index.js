@@ -1,3 +1,5 @@
+var PostIndexSubs = new SubsManager({cacheLimit: 5, expireIn: 1440});
+
 PostIndexController = RouteController.extend({
   yieldTemplates: {
     'Header': {to: 'Header'}
@@ -8,7 +10,7 @@ PostIndexController = RouteController.extend({
   },
   
   waitOn: function () {
-    return [Meteor.subscribe('post_index_by_name', this.params.name)];
+    return [PostIndexSubs.subscribe('post_index_by_name', this.params.name)];
   },
 
   post: function() {

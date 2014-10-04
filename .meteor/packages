@@ -17,4 +17,6 @@ cfs:s3
 cfs:graphicsmagick
 aldeed:simple-schema
 aldeed:collection2
+meteorhacks:fast-render
+meteorhacks:subs-manager
 
