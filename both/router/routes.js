@@ -20,10 +20,10 @@ beforeHooks = {
 Router.onBeforeAction(beforeHooks.isNotLoggedIn, {only: ['edit.index']});
 
 Router.map(function () {
-  this.route('posts.index', {path: '/'});
+  this.route('posts.index', {path: '/blog'});
   this.route('post.index', {path: '/post/:name'}); 
+  this.route('edit.index', {path: '/edit/:id'});
   this.route('register', {path: '/accounts/register'});
   this.route('login', {path: '/accounts/login'});
-  this.route('edit.index', {path: '/edit/:id'});
-  this.route('images.index', {path: '/'});
+  this.route('overview', {path: '/'});
 });

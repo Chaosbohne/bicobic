@@ -6,7 +6,7 @@ PostsIndexController = RouteController.extend({
   },  
   
   findQuery: function() {
-    return {sort: {submitted : -1}};
+    return {sort: {isPublished: -1, submitted : -1}};
   },
   
   waitOn: function () {

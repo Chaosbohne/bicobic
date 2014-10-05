@@ -16,18 +16,19 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@gray-darker:            lighten(#000, 13.5%); // #222
-@gray-dark:              lighten(#000, 20%);   // #333
-@gray:                   lighten(#000, 33.5%); // #555
-@gray-light:             lighten(#000, 46.7%); // #777
-@gray-lighter:           lighten(#000, 93.5%); // #eee
+@gray-darker:            lighten(#1f1f1f, 13.5%); // #222
+@gray-dark:              lighten(#1f1f1f, 20%);   // #333
+@gray:                   lighten(#1f1f1f, 33.5%); // #555
+@gray-light:             lighten(#1f1f1f, 46.7%); // #777
+@gray-lighter:           lighten(#1f1f1f, 93.5%); // #eee
 
-@brand-primary:         #428bca;
+@brand-primary:         #F28C83;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 
+@magic-color: #F28C83;
 
 //== Scaffolding
 //
@@ -36,7 +37,7 @@
 //** Background color for `<body>`.
 @body-bg:               #fff;
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            @gray;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
@@ -48,13 +49,13 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  Raleway, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          20px;
+@font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
@@ -72,7 +73,7 @@
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
-@headings-font-weight:    500;
+@headings-font-weight:    300;
 @headings-line-height:    1.1;
 @headings-color:          inherit;
 
@@ -108,9 +109,9 @@
 @line-height-large:         1.33;
 @line-height-small:         1.5;
 
-@border-radius-base:        4px;
-@border-radius-large:       6px;
-@border-radius-small:       3px;
+@border-radius-base:        1px;
+@border-radius-large:       1px;
+@border-radius-small:       1px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    #fff;
@@ -156,7 +157,7 @@
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             darken(@btn-primary-bg, 5%);
+@btn-primary-border:             @brand-primary;
 
 @btn-success-color:              #fff;
 @btn-success-bg:                 @brand-success;
@@ -193,7 +194,7 @@
 //** `<input>` border radius
 @input-border-radius:            @border-radius-base;
 //** Border color for inputs on focus
-@input-border-focus:             #66afe9;
+@input-border-focus:             #ccc;
 
 //** Placeholder text color
 @input-color-placeholder:        @gray-light;
@@ -209,7 +210,7 @@
 @legend-border-color:            #e5e5e5;
 
 //** Background color for textual input addons
-@input-group-addon-bg:           @gray-lighter;
+@input-group-addon-bg:           #fff;
 //** Border color for textual input addons
 @input-group-addon-border-color: @input-border;
 
@@ -344,7 +345,7 @@
 //##
 
 // Basics of a navbar
-@navbar-height:                    50px;
+@navbar-height:                    76px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
@@ -352,21 +353,21 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-bg:                #fff;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
 @navbar-default-link-color:                #777;
-@navbar-default-link-hover-color:          #333;
+@navbar-default-link-hover-color:          @magic-color;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-active-color:         @magic-color;
+@navbar-default-link-active-bg:            transparent;
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
 
 // Navbar brand label
 @navbar-default-brand-color:               @navbar-default-link-color;
-@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-color:         @navbar-default-link-color;
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
@@ -853,22 +854,5 @@
 @hr-border:                   @gray-lighter;
 
 
-@views-root: "/client/views";
-
-@import "@{views-root}/layouts/master_layout/master_layout.import.less";
-
-@import "@{views-root}/shared/loading/loading.import.less";
-@import "@{views-root}/shared/not_found/not_found.import.less";
-
-@import "@{views-root}/edit/edit_index/edit_index.import.less";
-@import "@{views-root}/edit/edit_save_status/edit_save_status.import.less";
-@import "@{views-root}/edit/edit_dropup/edit_dropup.import.less";
-@import "@{views-root}/edit/edit_upload/edit_upload.import.less";
-
-@import "@{views-root}/images/image_index/image_index.import.less";
-@import "@{views-root}/images/images_index/images_index.import.less";
-
-@import "@{views-root}/posts/post_index/post_index.import.less";
-
-@import "/client/app.import.less";
+@import "/client/lib/lessfiles.import.less";
 
