@@ -2,7 +2,8 @@ var PostsIndexSubs = new SubsManager({cacheLimit: 9999, expireIn: 9999});
 
 PostsIndexController = RouteController.extend({
   yieldTemplates: {
-    'Header': {to: 'Header'}
+    'Header': {to: 'Header'},
+    'Footer': {to: 'Footer'}
   },  
   
   findQuery: function() {

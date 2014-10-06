@@ -1,6 +1,7 @@
 LoginController = RouteController.extend({
   yieldTemplates: {
-    'Header': {to: 'Header'}
+    'Header': {to: 'Header'},
+    'Footer': {to: 'Footer'}
   },    
   
   waitOn: function () {

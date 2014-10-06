@@ -1,6 +1,7 @@
 RegisterController = RouteController.extend({
   yieldTemplates: {
-    'Header': {to: 'Header'}
+    'Header': {to: 'Header'},
+    'Footer': {to: 'Footer'}
   },    
   
   onRun:function() {
