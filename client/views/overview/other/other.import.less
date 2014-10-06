@@ -1,0 +1,51 @@
+/*****************************************************************************/
+/* Other: Style */
+/*****************************************************************************/
+
+
+#other {
+  background-color: @magic-color-2-light;
+}
+
+#other h1 {
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+#other .col-sm-4 {
+  margin: 15px 0;
+}
+
+.icon-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: @magic-color-3-light;
+  text-align: center;
+  padding: 2.5em 0;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+
+.icon-wrapper:after {
+  pointer-events:none;
+  content: "";
+  text-align: center;
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  top: -18px;
+  left: -18px;
+  border: 3px solid @magic-color-3-light;
+  position: absolute;
+  background-color: transparent;
+}
+
+.icon-wrapper:hover:after {
+  border: 3px solid @magic-color;
+}
+
+.icon-wrapper img {
+  max-height: 57px;
+}

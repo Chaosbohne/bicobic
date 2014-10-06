@@ -16,19 +16,28 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
+@magic-color: #ED8884;
+@magic-color-light: lighten(@magic-color, 20%);
+
+@magic-color-2: #49A2BF;
+@magic-color-2-light: lighten(#49A2BF, 20%);
+
+@magic-color-3: #222E38;
+@magic-color-3-light: lighten(#222E38, 20%);
+
 @gray-darker:            lighten(#1f1f1f, 13.5%); // #222
 @gray-dark:              lighten(#1f1f1f, 20%);   // #333
 @gray:                   lighten(#1f1f1f, 33.5%); // #555
 @gray-light:             lighten(#1f1f1f, 46.7%); // #777
 @gray-lighter:           lighten(#1f1f1f, 93.5%); // #eee
 
-@brand-primary:         #F28C83;
+@brand-primary:         @magic-color;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 
-@magic-color: #F28C83;
+
 
 //== Scaffolding
 //

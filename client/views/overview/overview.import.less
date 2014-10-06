@@ -1,3 +1,8 @@
+
+.border-top{
+  border-bottom: 8px solid @magic-color;
+}
+
 .control-label {
   display: none;
 }
@@ -5,4 +10,31 @@
 .section-padding {
   padding-top: 125px;
   padding-bottom: 145px;
+}
+
+
+.big-headline {
+  font-size: 57px;
+  line-height: 62px;
+  letter-spacing:0.01em;
+  word-spacing: 0.15em;
+  text-transform:uppercase;  
+}
+
+@media (max-width:992px){
+  .big-headline{
+    font-size:47px;
+    line-height:52px;
+    letter-spacing:0.01em;
+    word-spacing: 0.15em;
+  }
+}
+
+@media (max-width:768px){
+  .big-headline{
+    font-size:37px;
+    line-height:42px;
+    letter-spacing:0.01em;
+    word-spacing: 0.15em;
+  }  
 }
