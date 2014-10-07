@@ -9,11 +9,11 @@
 
 #other h1 {
   color: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 #other .col-sm-4 {
-  margin: 15px 0;
+  margin: 45px 0;
 }
 
 .icon-wrapper {
@@ -46,6 +46,23 @@
   border: 3px solid @magic-color;
 }
 
+.icon-wrapper:hover {
+    -webkit-animation:spin 0.5s ease-out 1;
+    -moz-animation:spin 0.5s ease-out 1;
+    animation:spin 0.5s ease-out 1;
+}
+
 .icon-wrapper img {
   max-height: 57px;
+}
+
+
+@-moz-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); }  
+}
+@-webkit-keyframes spin {
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); }  
 }
