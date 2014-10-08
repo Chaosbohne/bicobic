@@ -2,11 +2,11 @@
 <template name="PostItem">
   <div class="row">
     <article class="PostItem">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <img src="{{thumbnail}}"/>
       </div>
       <div class="col-md-8">
-        <h2><a href="{{pathFor 'post.index' name=this.strippedTitle}}">{{title}}</a></h2>
+        <h1><a href="{{pathFor 'post.index' name=this.strippedTitle}}">{{title}}</a></h1>
         <div class="PostItem-Meta">By {{author}} on {{Date createdAt}}</div>
         <div class="PostItem-Introduction">{{introduction}}</div>
         {{#if currentUser}} 

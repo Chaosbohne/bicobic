@@ -60,7 +60,7 @@ PostSchema = new SimpleSchema({
     type: String,
     trim: false,
     autoValue: function() {
-      if(this.isSet) {
+      if(this.field('content').isSet) {
         var converter = new Showdown.converter();
         return converter.makeHtml(this.field('content').value);      
       }
@@ -74,7 +74,7 @@ PostSchema = new SimpleSchema({
         var h1s = html.match(/<h1(.*?)<\/h1>/g);
 
         var matches = _.map(h1s, function(val){ return val.replace(/<\/?h1>/g,'').replace(/<h1(.*?)>/g,''); });
-
+        
         if(matches && matches[0])
           return matches[0];
         else

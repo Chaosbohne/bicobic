@@ -2,8 +2,7 @@ var EditIndexSubs = new SubsManager({cacheLimit: 5, expireIn: 1440});
 
 EditIndexController = RouteController.extend({
   yieldTemplates: {
-    'Header': {to: 'Header'},
-    'Footer': {to: 'Footer'}
+    'Header': {to: 'Header'}
   },  
   
   postQuery: function() {
