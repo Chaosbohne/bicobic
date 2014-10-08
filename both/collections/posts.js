@@ -68,6 +68,7 @@ PostSchema = new SimpleSchema({
   },
   title: {
     type: String,
+    unique: true,
     autoValue: function() {      
       if(this.field('html').isSet) {
         var html = this.field('html').value;

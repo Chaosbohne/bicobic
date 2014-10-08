@@ -26,5 +26,10 @@ PostsIndexController = RouteController.extend({
 
   action: function () {
     this.render();
+  },
+  
+  onAfterAction: function () {
+    // always start by resetting scroll to top of the page
+    $(window).scrollTop(0);
   }
 });

@@ -1,22 +1,20 @@
 
 <template name="PostItem">
-  <div class="row">
-    <article class="PostItem">
-      <div class="col-md-2 col-md-offset-1">
-        <img src="{{thumbnail}}"/>
-      </div>
-      <div class="col-md-8">
-        <h1><a href="{{pathFor 'post.index' name=this.strippedTitle}}">{{title}}</a></h1>
-        <div class="PostItem-Meta">By {{author}} on {{Date createdAt}}</div>
-        <div class="PostItem-Introduction">{{introduction}}</div>
-        {{#if currentUser}} 
+  <article class="PostItem row">
+    <div class="col-md-2 col-md-offset-1 image-container">
+      <img src="{{thumbnail}}"/>
+    </div>
+    <div class="col-md-8 preview-container">
+      <h1><a href="{{pathFor 'post.index' name=this.strippedTitle}}">{{title}}</a></h1>
+      <small class="PostItem-Meta">By {{author}} on {{Date createdAt}}</small>
+      <p class="PostItem-Introduction">{{introduction}}</p>
+      {{#if currentUser}} 
         <a href="{{pathFor 'edit.index' id=this._id}}" class="btn btn-primary">Edit</a>
-          {{#unless this.isPublished}}
-            <button class="publish">Publish</button>
-          {{/unless}}
-        {{/if}}
-      </div>    
-    </article>
-  </div>
+        {{#unless this.isPublished}}
+          <button class="publish btn btn-default">Publish</button>
+        {{/unless}}
+      {{/if}}
+    </div>    
+  </article>
 </template>
 
