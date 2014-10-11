@@ -27,7 +27,7 @@ Template.PostIndex.created = function () {
 };
 
 Template.PostIndex.rendered = function () {
-  console.log(this);
+  Prism.highlightAll();
 };
 
 Template.PostIndex.destroyed = function () {

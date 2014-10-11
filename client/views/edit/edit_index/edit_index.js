@@ -29,9 +29,7 @@ Template.EditIndex.helpers({
 Template.EditIndex.created = function () {
 };
 
-Template.EditIndex.rendered = function () { 
-  console.log(this);
-  
+Template.EditIndex.rendered = function () {   
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/chrome");
     editor.getSession().setMode("ace/mode/markdown");

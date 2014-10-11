@@ -46,7 +46,6 @@ Template.EditDropup.created = function () {
 };
 
 Template.EditDropup.rendered = function () {
-  console.log(this);
 };
 
 Template.EditDropup.destroyed = function () {

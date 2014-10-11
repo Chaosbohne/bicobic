@@ -14,10 +14,22 @@ beforeHooks = {
     if(!(Meteor.loggingIn() || Meteor.user())) {
       Router.go('posts.index');
     }
+  },
+  syntaxHighlighting: function() {
+    console.log('syntaxHighlighting');
+    $('body').addClass('language-javascript');
+  }  
+}
+
+onStopHooks = {
+  syntaxHighlighting: function() {
+    $('body').removeClass('language-javascript');
   }
 }
 
 Router.onBeforeAction(beforeHooks.isNotLoggedIn, {only: ['edit.index']});
+Router.onBeforeAction(beforeHooks.syntaxHighlighting,  {only: ['posts.index', 'post.index']});
+Router.onStop(onStopHooks.syntaxHighlighting,  {only: ['posts.index', 'post.index']});
 
 Router.map(function () {
   this.route('posts.index', {path: '/blog'});

@@ -26,5 +26,5 @@ PostIndexController = RouteController.extend({
 
   action: function () {
     this.render();
-  }
+  }   
 });

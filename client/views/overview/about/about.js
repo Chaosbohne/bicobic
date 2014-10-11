@@ -8,7 +8,7 @@ Template.About.events({
    *  'click .selector': function (e, tmpl) {
    *
    *  }
-   */
+   */ 
 });
 
 Template.About.helpers({

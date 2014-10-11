@@ -25,7 +25,12 @@ Template.Header.helpers({
    *    return Items.find();
    *  }
    */
+  activeIfTemplateIs: function (template) {
+    var currentRoute = Router.current();
+    return currentRoute && template === currentRoute.lookupTemplate() ? 'active' : '';
+  }  
 });
+
 
 /*****************************************************************************/
 /* Header: Lifecycle Hooks */
@@ -34,6 +39,9 @@ Template.Header.created = function () {
 };
 
 Template.Header.rendered = function () {
+  console.log(this);
+  console.log(Router.current());
+  console.log(Router.current().lookupTemplate());
 };
 
 Template.Header.destroyed = function () {
