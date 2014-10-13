@@ -27,7 +27,6 @@ Template.Register.events({
     Accounts.createUser({
       username: inputName,
       password: inputPassword1,
-      email: 'bicobic@gmx.de',
       profile: {
         name: 'Rico Ruszewski'
       }
@@ -36,8 +35,11 @@ Template.Register.events({
         Session.set('registerFormError', true);
       }else {
         Session.set('registerFormSuccess', true);
+        console.log(Meteor.user());
       }
     });
+    
+    Roles.addUsersToRoles(Meteor.user(), ['admin']);           
   }  
 });
 

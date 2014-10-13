@@ -1,4 +1,5 @@
 if(Meteor.users.find().count() === 0){
+  /*
   var userId = Accounts.createUser({
     username: 'name',
     password: 'password',
@@ -7,6 +8,7 @@ if(Meteor.users.find().count() === 0){
       name: 'Rico Ruszewski'
     }
   });
+  */
 }
 
 
@@ -23,6 +25,7 @@ if(Posts.find().count() === 0) {
   });
   
 */
+  /*
   var rico = Meteor.users.findOne({'emails.address' : 'bicobic@gmx.de'});
 
   Posts.insert({
@@ -30,6 +33,7 @@ if(Posts.find().count() === 0) {
     "markdown": "accusam et justo duo dolores ",
     "isPublished": false
   });  
+  */
   
 /*
   Posts.insert({
