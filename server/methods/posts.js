@@ -11,9 +11,11 @@ Meteor.methods({
   *
   */
   '/app/posts/create': function() {
-    var user = Meteor.user();
-    if(!user){ throw new Meteor.Error(401, "You are no admin!"); }
-   
-    return Posts.insert({});    
+    if (Roles.userIsInRole(this.userId, ['admin'])){
+      return Posts.insert({});    
+    }else {
+      this.stop();
+      return;  
+    }
   }
 });

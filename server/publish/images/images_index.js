@@ -4,10 +4,20 @@
 
 Meteor.publish('images_index', function () {
   // you can remove this if you return a cursor
-  return Images.find();
+    if (Roles.userIsInRole(this.userId, ['admin'])) {
+      return Images.find();
+    }
+  
+    this.stop();
+    return;  
 });
 
 Meteor.publish('image_index', function (imageId) {
   // you can remove this if you return a cursor
-  return Images.find({ _id : imageId });
+  if (Roles.userIsInRole(this.userId, ['admin'])) {
+    return Images.find({ _id : imageId });
+  }
+
+  this.stop();
+  return;  
 });

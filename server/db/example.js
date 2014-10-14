@@ -1,3 +1,4 @@
+/*
 if(Meteor.users.find().count() === 0){
   
   var userId = Accounts.createUser({
@@ -11,3 +12,4 @@ if(Meteor.users.find().count() === 0){
   
   Roles.addUsersToRoles(userId, ['admin']);
 }
+*/
