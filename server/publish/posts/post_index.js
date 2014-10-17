@@ -8,6 +8,19 @@ Meteor.publish('post_index_by_name', function (name) {
   }
 });
 
+Meteor.publish('post_index_by_name_or_id', function(idOrName){
+  if(_.isString(idOrName)) {
+    var withName = Posts.findOne({strippedTitle: idOrName});
+    if(withName) {
+      return Posts.find({strippedTitle: idOrName})
+    }
+    return Posts.find({_id: idOrName})
+  }else {
+    this.stop();
+    return;
+  }
+});
+
 Meteor.publish('post_index_by_id', function (id) {
   if(_.isString(id)) {  
     return Posts.find({_id: id});
