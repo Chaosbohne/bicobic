@@ -1,5 +1,17 @@
 
 <template name="NotFound">
-  client/views/shared/not_found/not_found.html
+  <div id="notfound">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="text-center">
+            <h2><strong>The page you are looking for is not available!</strong></h2>
+            <p>Use my <a href="{{pathFor 'overview' hash='contact'}}"> contact form </a> if you miss something here.</p>
+            <a href="{{pathFor 'posts.index'}}">Back to my blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
