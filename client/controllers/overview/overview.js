@@ -14,6 +14,13 @@ OverviewController = RouteController.extend({
     this.render();
   },
   
+  onBeforeAction: function() {
+    Session.setDefault('contactFormButtonMessage', 'Send Message');
+    Session.setDefault('contactNameError', null);
+    Session.setDefault('contactEmailError', null);
+    Session.setDefault('contactMessageError', null);   
+  },
+  
   onAfterAction: function () {
     // always start by resetting scroll to top of the page
     $(window).scrollTop(0);

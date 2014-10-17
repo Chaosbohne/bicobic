@@ -39,9 +39,6 @@ Template.Header.created = function () {
 };
 
 Template.Header.rendered = function () {
-  console.log(this);
-  console.log(Router.current());
-  console.log(Router.current().lookupTemplate());
 };
 
 Template.Header.destroyed = function () {

@@ -16,7 +16,6 @@ beforeHooks = {
     }
   },
   syntaxHighlighting: function() {
-    console.log('syntaxHighlighting');
     $('body').addClass('language-javascript');
   }  
 }

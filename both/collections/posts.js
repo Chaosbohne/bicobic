@@ -1,6 +1,6 @@
 Posts = new Meteor.Collection('posts');
 
-PostSchema = new SimpleSchema({
+Schemas.PostSchema = new SimpleSchema({
   authorId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
@@ -133,4 +133,4 @@ PostSchema = new SimpleSchema({
   }
 });
 
-Posts.attachSchema(PostSchema);
+Posts.attachSchema(Schemas.PostSchema);
