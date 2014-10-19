@@ -1,0 +1,21 @@
+{
+  "public": {
+    "ga": {
+      "id": "UA-55879402-1",
+      "create": {
+        "cookieDomain": "ace-editor-141425.euw1-2.nitrousbox.com",
+        "cookieName": "my_ga_cookie",
+        "cookieExpires": 3600
+      },
+      "set": {
+        "forceSSL": true,
+        "anonymizeIp": true
+      },
+      "require": {
+        "displayfeatures": true,
+        "linkid": "linkid.js"
+      }
+    }
+  }
+}
+

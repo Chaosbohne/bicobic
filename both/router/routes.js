@@ -6,7 +6,8 @@ Router.configure({
   loadingTemplate: 'Loading',
   notFoundTemplate: 'NotFound',
   templateNameConverter: 'upperCamelCase',
-  routeControllerNameConverter: 'upperCamelCase'
+  routeControllerNameConverter: 'upperCamelCase',
+  trackPageView: true
 });
 
 beforeHooks = {
