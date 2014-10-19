@@ -29,32 +29,35 @@ Template.Disqus.rendered = function () {
   //because the url can change the disqus config has to be attached to use the post id as unique identifier and a unique url
   //check docu: https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables
   
-  var pathArray, protocol, host, subhost, post, url;
   
+  
+  /*
+  var pathArray, protocol, host, subhost, post, url;
   pathArray = window.location.href.split( '/' );
   protocol = pathArray[0];
   host = pathArray[2];
   subhost = pathArray[3];
-  post = this.data;
   url = protocol + '//' + host + '/' + subhost + '/' + post._id;
-
   console.log(protocol + '//' + host + '/' + subhost + '/' + post._id);
+  */
+  var post = this.data;
   
-  if(post._id && post.title && url ){
+  
+  if(post._id && post.title ){
   if(typeof window.DISQUS !== "undefined" && window.DISQUS !== null) {
     return window.DISQUS.reset({
       reload: true,
       config: function() {
         this.page.identifier = post._id;
         this.page.title = post.title;
-        this.page.url = url;
+        this.page.url = window.location.href;
       }
     });
   } else {
       disqus_shortname = 'rico-ruszewski';
       disqus_identifier = post._id;
       disqus_title = post.title;
-      disqus_url = url;
+      disqus_url = window.location.href;
       disqus_developer = 1;
       dsq = null;
     dsq = document.createElement('script');
