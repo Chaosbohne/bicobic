@@ -10,9 +10,15 @@
         {{/with}}
       </div>
     </div>
-    {{#with post}}
-      {{> Disqus this}}
-    {{/with}}
+    <div class="row">
+      <div class="col-md-8 col-md-offset-3" >
+        {{#with post}}
+          {{#if isPublished}}
+            {{> Disqus this}}
+          {{/if}}
+        {{/with}}      
+      </div>
+    </div>      
   </div>  
 </template>
 
