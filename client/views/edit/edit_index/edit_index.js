@@ -46,7 +46,7 @@ Template.EditIndex.rendered = function () {
 
       if(markdown != this.temp) {
         this.temp = markdown;
-        Posts.update({_id : that.data.post._id}, {$set:{content : markdown}}, function(error) {
+        Posts.update({_id : that.data.post._id}, {$set:{content : markdown, isPublished : that.data.post.isPublished}}, function(error) {
           if(!error)
             Session.set('editSaveStatus', true);
         });        

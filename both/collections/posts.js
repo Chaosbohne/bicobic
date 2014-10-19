@@ -69,7 +69,9 @@ Schemas.PostSchema = new SimpleSchema({
   title: {
     type: String,
     unique: true,
-    autoValue: function() {      
+    autoValue: function() {     
+      if(this.field('isPublished').isSet && this.field('isPublished').value === true)
+        return;
       if(this.field('html').isSet) {
         var html = this.field('html').value;
         var h1s = html.match(/<h1(.*?)<\/h1>/g);

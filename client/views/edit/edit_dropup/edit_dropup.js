@@ -14,7 +14,7 @@ Template.EditDropup.events({
 
     if(editor) {
       var markdown = editor.getValue();
-      Posts.update({_id : this._id}, {$set:{content : markdown}}, function(error) {
+      Posts.update({_id : this._id}, {$set:{content : markdown, isPublished : this.isPublished}}, function(error) {
         if(!error)
           Session.set('editSaveStatus', true);
       });
