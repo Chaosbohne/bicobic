@@ -17,7 +17,13 @@
       }
     },
     "disqus": {
-      "disqus_shortname": "rico-ruszewski"
+      "disqus_shortname": "rico-ruszewski-development"
+    },
+    "aws": {
+      "bucket_images_name": "rico-ruszewski-development-images",
+      "bucket_images_region": "eu-west-1",
+      "bucket_thumbs_name":"rico-ruszewski-development-thumbs",
+      "bucket_thumbs_region": "eu-west-1"
     }
   }
 }

@@ -1,6 +1,6 @@
 var imageStore = new FS.Store.S3("main", {
-  bucket: "bicobicimages", //required
-  region: "eu-west-1", 
+  bucket: Config.settings.bucket_images_name, //required
+  region: Config.settings.bucket_images_region, 
   maxTries: 1,
   transformWrite: function(fileObj, readStream, writeStream) {
     gm(readStream, fileObj.name).strip().resize('1200').interlace("plane").blur('0.05').quality('80').stream().pipe(writeStream);
@@ -8,8 +8,8 @@ var imageStore = new FS.Store.S3("main", {
 });
 
 var thumbStore = new FS.Store.S3("thumbs", {
-  bucket: "bicobicthumbs", //required
-  region: "eu-west-1", 
+  bucket: Config.settings.bucket_thumbs_name, //required
+  region: Config.settings.bucket_thumbs_region, 
   maxTries: 1,
   transformWrite: function(fileObj, readStream, writeStream) {
     gm(readStream, fileObj.name()).resize(140, 140).stream().pipe(writeStream);

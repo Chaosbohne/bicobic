@@ -19,6 +19,11 @@ Config = {
   settings: {
     //Disqus
     disqus_shortname : Meteor.settings && Meteor.settings.public && Meteor.settings.public.disqus && Meteor.settings.public.disqus.disqus_shortname || '',
+    //AWS
+    bucket_images_name: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_images_name || '',
+    bucket_images_region: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_images_region || '',
+    bucket_thumbs_name: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_thumbs_name || '',
+    bucket_thumbs_region:  Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_thumbs_region || ''
     //Google Analytics
     //See https://github.com/reywood/meteor-iron-router-ga/blob/master/lib/ga.js
   },
@@ -27,6 +32,4 @@ Config = {
   }  
 }
 
-
 this.Config = Config;
-console.log(this);
