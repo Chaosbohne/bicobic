@@ -25,6 +25,14 @@
       "bucket_thumbs_name":"rico-ruszewski-development-thumbs",
       "bucket_thumbs_region": "eu-west-1"
     }
+  },
+  "private": {
+    "admin": {
+      "username": "chaosbohne",
+      "password": "bicobic",
+      "email": "bicobic@gmx.de",
+      "name":"Rico Ruszewski"
+    }
   }
 }
 

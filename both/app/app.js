@@ -23,7 +23,13 @@ Config = {
     bucket_images_name: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_images_name || '',
     bucket_images_region: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_images_region || '',
     bucket_thumbs_name: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_thumbs_name || '',
-    bucket_thumbs_region:  Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_thumbs_region || ''
+    bucket_thumbs_region:  Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_thumbs_region || '',
+    //ADMIN
+    //name: Meteor.settings && Meteor.settings.private && Meteor.settings.private.admin && Meteor.settings.private.admin.name || '',
+    //username: Meteor.settings && Meteor.settings.private && Meteor.settings.private.admin && Meteor.settings.private.admin.username || '',
+    //email: Meteor.settings && Meteor.settings.private && Meteor.settings.private.admin && Meteor.settings.private.email || '',
+    //password: Meteor.settings && Meteor.settings.private && Meteor.settings.private.admin && Meteor.settings.private.password || '',
+    
     //Google Analytics
     //See https://github.com/reywood/meteor-iron-router-ga/blob/master/lib/ga.js
   },
