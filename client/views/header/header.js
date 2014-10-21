@@ -14,6 +14,9 @@ Template.Header.events({
     Meteor.call('/app/posts/create', function(error, postId) {
       if(!error)
         Router.go('edit.index', {id: postId});  
+      else {
+        console.log(error);
+      }
     });
   }
 });

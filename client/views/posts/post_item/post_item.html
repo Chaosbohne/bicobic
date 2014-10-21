@@ -2,7 +2,9 @@
 <template name="PostItem">
   <article class="PostItem row">
     <div class="col-md-2 col-md-offset-1 image-container">
-      <img src="{{thumbnail}}"/>
+      {{#if thumbnail}}
+        <img src="{{thumbnail}}"/>
+      {{/if}}
     </div>
     <div class="col-md-8 preview-container">
       <h1><a href="{{pathFor 'post.index' name=this.strippedTitle}}">{{title}}</a></h1>

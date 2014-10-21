@@ -17,6 +17,9 @@ Template.Disqus.helpers({
    *    return Items.find();
    *  }
    */
+  disqus: function() {
+    return Config.hasValidStringProperty(Config.settings.disqus_shortname);
+  }
 });
 
 /*****************************************************************************/
@@ -40,31 +43,32 @@ Template.Disqus.rendered = function () {
   url = protocol + '//' + host + '/' + subhost + '/' + post._id;
   console.log(protocol + '//' + host + '/' + subhost + '/' + post._id);
   */
-  var post = this.data;
-  
-  
-  if(post._id && post.title ){
-  if(typeof window.DISQUS !== "undefined" && window.DISQUS !== null) {
-    return window.DISQUS.reset({
-      reload: true,
-      config: function() {
-        this.page.identifier = post._id;
-        this.page.title = post.title;
-        this.page.url = window.location.href;
+  if(Config.hasValidStringProperty(Config.settings.disqus_shortname)) {
+    var post = this.data;
+
+    if(post._id && post.title ){
+      if(typeof window.DISQUS !== "undefined" && window.DISQUS !== null) {
+        return window.DISQUS.reset({
+          reload: true,
+          config: function() {
+            this.page.identifier = post._id;
+            this.page.title = post.title;
+            this.page.url = window.location.href;
+          }
+        });
+      } else {
+        disqus_shortname = Config.settings.disqus_shortname;
+        disqus_identifier = post._id;
+        disqus_title = post.title;
+        disqus_url = window.location.href;
+        disqus_developer = 1;
+        dsq = null;
+        dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
-    });
-  } else {
-      disqus_shortname = 'rico-ruszewski';
-      disqus_identifier = post._id;
-      disqus_title = post.title;
-      disqus_url = window.location.href;
-      disqus_developer = 1;
-      dsq = null;
-    dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   }
 }
 

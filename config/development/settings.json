@@ -15,6 +15,9 @@
         "displayfeatures": true,
         "linkid": "linkid.js"
       }
+    },
+    "disqus": {
+      "disqus_shortname": "rico-ruszewski"
     }
   }
 }
