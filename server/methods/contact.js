@@ -9,9 +9,9 @@ Meteor.methods({
         
         Email.send({
           to: 'bicobic@gmx.de',
-          from: 'bicobic@gmx.de',
-          subject: 'Email from bicobic-blog: (' + contactContext.name +')(' + contactContext.email + ')',
-          text: contactContext.message
+          from: contactFields.email,
+          subject: 'Email from bicobic-blog: (' + contactFields.name +')(' + contactFields.email + ')',
+          text: contactFields.message
         });              
       }else {
         throw new Meteor.Error("validation-failed", "The validation of your input parameters failed!");
