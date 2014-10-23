@@ -23,10 +23,13 @@ OverviewController = RouteController.extend({
   
   onAfterAction: function () {
     if (this.params.hash) {
-      var scrollTop = $("#" + this.params.hash).offset().top;
-      $("html,body").animate({
-        scrollTop: scrollTop
-      });    
+      var scrollTop = $("#" + this.params.hash);
+      if(scrollTop && scrollTop.offset()) {
+        scrollTop = scrollTop.offset().top;
+        $("html,body").animate({
+          scrollTop: scrollTop
+        });    
+      }
     }  
   }
 });
