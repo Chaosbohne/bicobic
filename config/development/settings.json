@@ -18,12 +18,6 @@
     },
     "disqus": {
       "disqus_shortname": "rico-ruszewski-development"
-    },
-    "aws": {
-      "bucket_images_name": "rico-ruszewski-development-images",
-      "bucket_images_region": "eu-west-1",
-      "bucket_thumbs_name":"rico-ruszewski-development-thumbs",
-      "bucket_thumbs_region": "eu-west-1"
     }
   },
   "private": {
@@ -38,7 +32,15 @@
       "password": "",
       "server" : "",
       "port" : ""
-    }
+    },
+    "aws": {
+      "bucket_images_name": "",
+      "bucket_images_region": "",
+      "bucket_thumbs_name":"",
+      "bucket_thumbs_region": "",
+      "aws_access_key_id":"",
+      "aws_secret_access_key":""
+    }    
   }
 }
 

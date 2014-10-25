@@ -21,10 +21,10 @@ Config = {
     disqus_shortname : Meteor.settings && Meteor.settings.public && Meteor.settings.public.disqus && Meteor.settings.public.disqus.disqus_shortname || '',
     
     //##### AWS
-    bucket_images_name: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_images_name || '',
-    bucket_images_region: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_images_region || '',
-    bucket_thumbs_name: Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_thumbs_name || '',
-    bucket_thumbs_region:  Meteor.settings && Meteor.settings.public && Meteor.settings.public.aws && Meteor.settings.public.aws.bucket_thumbs_region || '',
+    bucket_images_name: Meteor.settings && Meteor.settings.private && Meteor.settings.private.aws && Meteor.settings.private.aws.bucket_images_name || '',
+    bucket_images_region: Meteor.settings && Meteor.settings.private && Meteor.settings.private.aws && Meteor.settings.private.aws.bucket_images_region || '',
+    bucket_thumbs_name: Meteor.settings && Meteor.settings.private && Meteor.settings.private.aws && Meteor.settings.private.aws.bucket_thumbs_name || '',
+    bucket_thumbs_region:  Meteor.settings && Meteor.settings.private && Meteor.settings.private.aws && Meteor.settings.private.aws.bucket_thumbs_region || '',
     
     //##### ADMIN
     //name: Meteor.settings && Meteor.settings.private && Meteor.settings.private.admin && Meteor.settings.private.admin.name || '',
@@ -48,24 +48,32 @@ Config = {
 
 this.Config = Config;
 
-Meteor.startup(function() {
-  if(Meteor.isServer) {
-    var email = {
-      username: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.username || '',
-      password: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.password || '',
-      server: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.server || '',
-      port: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.port || ''
-    };
 
-    if(Config.hasValidStringProperty(email.username) && 
-       Config.hasValidStringProperty(email.password) &&
-       Config.hasValidStringProperty(email.server) &&
-       Config.hasValidStringProperty(email.port)
-      ) {    
-      process.env.MAIL_URL = 'smtp://' + encodeURIComponent(email.username) + ':' + encodeURIComponent(email.password) + '@' + encodeURIComponent(email.server) + ':' + email.port;
-      
-      console.log(process.env.MAIL_URL);
-    }
+if(Meteor.isServer) {
+  var email = {
+    username: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.username || '',
+    password: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.password || '',
+    server: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.server || '',
+    port: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.port || ''
+  };
 
+  if(Config.hasValidStringProperty(email.username) && 
+     Config.hasValidStringProperty(email.password) &&
+     Config.hasValidStringProperty(email.server) &&
+     Config.hasValidStringProperty(email.port)
+    ) {    
+    process.env.MAIL_URL = 'smtp://' + encodeURIComponent(email.username) + ':' + encodeURIComponent(email.password) + '@' + encodeURIComponent(email.server) + ':' + email.port;
+  }       
+  
+  var aws = {
+    aws_access_key_id : Meteor.settings && Meteor.settings.private && Meteor.settings.private.aws && Meteor.settings.private.aws.aws_access_key_id || '',
+    aws_secret_access_key : Meteor.settings && Meteor.settings.private && Meteor.settings.private.aws && Meteor.settings.private.aws.aws_secret_access_key || ''
+  };
+  
+  if(Config.hasValidStringProperty(aws.aws_access_key_id) &&
+     Config.hasValidStringProperty(aws.aws_secret_access_key)) {
+    process.env.AWS_ACCESS_KEY_ID = aws.aws_access_key_id;
+    process.env.AWS_SECRET_ACCESS_KEY = aws.aws_secret_access_key;  
   }
-});
+}
+
