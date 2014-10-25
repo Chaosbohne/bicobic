@@ -22,10 +22,10 @@
   },
   "private": {
     "admin": {
-      "username": "chaosbohne",
-      "password": "bicobic",
-      "email": "bicobic@gmx.de",
-      "name":"Rico Ruszewski"
+      "username": "<DEFAULT USERNAME OF ADMIN>",
+      "password": "<DEFAULT PASSWORD OF ADMIN>",
+      "email": "<DEFAULT EMAIL OF ADMIN>",
+      "name":"<DEFAULT NAME OF ADMIN>"
     },
     "email": {
       "username": "",
@@ -34,12 +34,12 @@
       "port" : ""
     },
     "aws": {
-      "bucket_images_name": "",
-      "bucket_images_region": "",
-      "bucket_thumbs_name":"",
-      "bucket_thumbs_region": "",
-      "aws_access_key_id":"",
-      "aws_secret_access_key":""
+      "bucket_images_name": "<YOUR IMAGE BUCKET NAME>",
+      "bucket_images_region": "<YOUR IMAGE BUCKET REGION>",
+      "bucket_thumbs_name": "<YOUR THUMBS BUCKET NAME>",
+      "bucket_thumbs_region": "<YOUR THUMBS BUCKET REGION>",
+      "aws_access_key_id": "<YOUR AWS ACCESS KEY ID>",
+      "aws_secret_access_key": "<YOUR AWS SECRET ACCESS KEY>"
     }    
   }
 }
