@@ -7,10 +7,7 @@ Schemas.PostSchema = new SimpleSchema({
     denyUpdate: true,
     autoValue: function() {
       if (this.isInsert) {
-        if(this.userId)
           return Meteor.user()._id;
-        else if(this.isFromTrustedCode)
-          return Meteor.users.findOne({'emails.address' : 'bicobic@gmx.de'})._id;        
       }
     }
   }, 
@@ -19,10 +16,7 @@ Schemas.PostSchema = new SimpleSchema({
     denyUpdate: true,
     autoValue: function() {
       if (this.isInsert) {
-        if(this.userId)
-          return Meteor.user().profile.name;
-        else if(this.isFromTrustedCode)
-          return Meteor.users.findOne({'emails.address' : 'bicobic@gmx.de'}).username;        
+          return Meteor.user().profile.name;  
       }
     }
   },
