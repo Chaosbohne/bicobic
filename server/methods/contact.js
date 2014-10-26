@@ -8,7 +8,7 @@ Meteor.methods({
         this.unblock();      
         
         Email.send({
-          to: 'bicobic@gmx.de',
+          to: 'contact@rico-ruszewski.com',
           from: contactFields.email,
           subject: 'Email from bicobic-blog: (' + contactFields.name +')(' + contactFields.email + ')',
           text: contactFields.message
