@@ -1,3 +1,27 @@
 /*****************************************************************************/
 /* About: Style */
 /*****************************************************************************/
+
+
+@media (min-width: @screen-sm-min) { 
+  #about img {
+    margin: 0 auto;
+    margin-top: 24px;
+    border: 8px solid @magic-color;
+    -webkit-transform: rotate(3deg);
+    -ms-transform: rotate(3deg); /* IE 9 */
+    transform: rotate(3deg);
+    height: 411px;
+  }
+}
+
+@media (max-width: @screen-xs-max) { 
+  #about img:before {
+    text-align: center;
+  }
+  #about img {
+    margin: 0 auto;
+    border: 8px solid @magic-color;
+    height: 411px;
+  }
+}

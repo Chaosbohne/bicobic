@@ -7,8 +7,6 @@ var imageStore = new FS.Store.S3("main", {
   }
 });
 
-console.log(Config);
-
 var thumbStore = new FS.Store.S3("thumbs", {
   bucket: Config.settings.bucket_thumbs_name, //required
   region: Config.settings.bucket_thumbs_region, 

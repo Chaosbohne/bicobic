@@ -4,3 +4,10 @@
 a:focus {
   outline:none !important;
 }
+
+//Removing brand else navbar will break
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
+  .navbar-brand {
+    display: none;
+  }
+}
