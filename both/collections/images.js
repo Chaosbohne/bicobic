@@ -3,7 +3,7 @@ var imageStore = new FS.Store.S3("main", {
   region: Config.settings.bucket_images_region, 
   maxTries: 1,
   transformWrite: function(fileObj, readStream, writeStream) {
-    gm(readStream, fileObj.name).strip().resize('1200').interlace("plane").blur('0.05').quality('80').stream().pipe(writeStream);
+    gm(readStream, fileObj.name).strip().resize('1200>').interlace("plane").quality('80').stream().pipe(writeStream);
   }
 });
 
