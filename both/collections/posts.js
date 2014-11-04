@@ -106,10 +106,10 @@ Schemas.PostSchema = new SimpleSchema({
     autoValue: function() {
       if(this.field('html').isSet) {
         var html = this.field('html').value;
-        var h1s = html.match(/<p>(.*?)<\/p>/g);
+        var ps = html.match(/<p>((.|\s)*?)<\/p>/g);
 
-        var matches = _.map(h1s, function(val){ return val.replace(/<\/?p>/g,''); });
-
+        var matches = _.map(ps, function(val){ return val.replace(/<\/?p>/g,''); });
+        
         if(matches && matches[0])
           return matches[0];
         else
