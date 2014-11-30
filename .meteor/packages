@@ -8,7 +8,6 @@ iron:router
 less
 accounts-base
 accounts-password
-mrt:iron-router-progress
 showdown
 cfs:standard-packages
 cfs:s3
@@ -24,3 +23,5 @@ reywood:iron-router-ga
 spiderable
 cfs:gridfs
 nemo64:bootstrap
+multiply:iron-router-progress
+
