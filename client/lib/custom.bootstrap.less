@@ -10,7 +10,7 @@
 
 
 // @import "bootstrap/less/normalize.less"
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 //
 // 1. Set default font family to sans-serif.
@@ -37,7 +37,8 @@ body {
 
 //
 // Correct `block` display not defined for any HTML5 element in IE 8/9.
-// Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+// Correct `block` display not defined for `details` or `summary` in IE 10/11
+// and Firefox.
 // Correct `block` display not defined for `main` in IE 11.
 //
 
@@ -50,6 +51,7 @@ footer,
 header,
 hgroup,
 main,
+menu,
 nav,
 section,
 summary {
@@ -97,7 +99,7 @@ template {
 //
 
 a {
-  background: transparent;
+  background-color: transparent;
 }
 
 //
@@ -439,106 +441,112 @@ th {
 
 
 // @import "bootstrap/less/print.less"
-//
-// Basic print styles
-// --------------------------------------------------
-// Source: https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+// ==========================================================================
+// Print styles.
+// Inlined to avoid the additional HTTP request: h5bp.com/r
+// ==========================================================================
 
 @media print {
-
-  * {
-    text-shadow: none !important;
-    color: #000 !important; // Black prints faster: h5bp.com/s
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  // Don't show links for images, or javascript/internal links
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group; // h5bp.com/t
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  img {
-    max-width: 100% !important;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-
-  // Chrome (OSX) fix for https://github.com/twbs/bootstrap/issues/11245
-  // Once fixed, we can just straight up remove this.
-  select {
-    background: #fff !important;
-  }
-
-  // Bootstrap components
-  .navbar {
-    display: none;
-  }
-  .table {
-    td,
-    th {
-      background-color: #fff !important;
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; // Black prints faster: h5bp.com/s
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
-  }
-  .btn,
-  .dropup > .btn {
-    > .caret {
-      border-top-color: #000 !important;
-    }
-  }
-  .label {
-    border: 1px solid #000;
-  }
 
-  .table {
-    border-collapse: collapse !important;
-  }
-  .table-bordered {
-    th,
-    td {
-      border: 1px solid #ddd !important;
+    a,
+    a:visited {
+        text-decoration: underline;
     }
-  }
 
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    // Don't show links that are fragment identifiers,
+    // or use the `javascript:` pseudo protocol
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; // h5bp.com/t
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    // Bootstrap specific changes start
+    //
+    // Chrome (OSX) fix for https://github.com/twbs/bootstrap/issues/11245
+    // Once fixed, we can just straight up remove this.
+    select {
+        background: #fff !important;
+    }
+
+    // Bootstrap components
+    .navbar {
+        display: none;
+    }
+    .btn,
+    .dropup > .btn {
+        > .caret {
+            border-top-color: #000 !important;
+        }
+    }
+    .label {
+        border: 1px solid #000;
+    }
+
+    .table {
+        border-collapse: collapse !important;
+
+        td,
+        th {
+            background-color: #fff !important;
+        }
+    }
+    .table-bordered {
+        th,
+        td {
+            border: 1px solid #ddd !important;
+        }
+    }
+
+    // Bootstrap specific changes end
 }
 
 
@@ -598,7 +606,7 @@ a {
   &:hover,
   &:focus {
     color: @link-hover-color;
-    text-decoration: underline;
+    text-decoration: @link-hover-decoration;
   }
 
   &:focus {
@@ -778,11 +786,6 @@ p {
 small,
 .small {
   font-size: floor((100% * @font-size-small / @font-size-base));
-}
-
-// Undo browser default styling
-cite {
-  font-style: normal;
 }
 
 mark,
@@ -999,12 +1002,6 @@ blockquote.pull-right {
   }
 }
 
-// Quotes
-blockquote:before,
-blockquote:after {
-  content: "";
-}
-
 // Addresses
 address {
   margin-bottom: @line-height-computed;
@@ -1049,6 +1046,7 @@ kbd {
   kbd {
     padding: 0;
     font-size: 100%;
+    font-weight: bold;
     box-shadow: none;
   }
 }
@@ -1183,6 +1181,12 @@ pre {
 table {
   background-color: @table-bg;
 }
+caption {
+  padding-top: @table-cell-padding;
+  padding-bottom: @table-cell-padding;
+  color: @text-muted;
+  text-align: left;
+}
 th {
   text-align: left;
 }
@@ -1283,10 +1287,7 @@ th {
 
 .table-striped {
   > tbody > tr:nth-child(odd) {
-    > td,
-    > th {
-      background-color: @table-bg-accent;
-    }
+    background-color: @table-bg-accent;
   }
 }
 
@@ -1297,10 +1298,7 @@ th {
 
 .table-hover {
   > tbody > tr:hover {
-    > td,
-    > th {
-      background-color: @table-bg-hover;
-    }
+    background-color: @table-bg-hover;
   }
 }
 
@@ -1346,14 +1344,15 @@ table {
 // will display normally.
 
 .table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
   @media screen and (max-width: @screen-xs-max) {
     width: 100%;
     margin-bottom: (@line-height-computed * 0.75);
     overflow-y: hidden;
-    overflow-x: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid @table-border-color;
-    -webkit-overflow-scrolling: touch;
 
     // Tighten up spacing
     > .table {
@@ -1555,7 +1554,7 @@ output {
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
-    cursor: not-allowed;
+    cursor: @cursor-disabled;
     background-color: @input-bg-disabled;
     opacity: 1; // iOS fix for unreadable disabled content
   }
@@ -1597,9 +1596,26 @@ input[type="month"] {
 
   &.input-sm {
     line-height: @input-height-small;
+    line-height: @line-height-small ~"\0";
   }
   &.input-lg {
     line-height: @input-height-large;
+    line-height: @line-height-large ~"\0";
+  }
+}
+
+// IE 11 hack to reverse the iOS temporal input hack.
+_:-ms-fullscreen, :root input[type="date"],
+_:-ms-fullscreen, :root input[type="time"],
+_:-ms-fullscreen, :root input[type="datetime-local"],
+_:-ms-fullscreen, :root input[type="month"] {
+  line-height: @line-height-base;
+
+  &.input-sm {
+    line-height: @line-height-small;
+  }
+  &.input-lg {
+    line-height: @line-height-large;
   }
 }
 
@@ -1622,11 +1638,11 @@ input[type="month"] {
 .checkbox {
   position: relative;
   display: block;
-  min-height: @line-height-computed; // clear the floating input if there is no label text
   margin-top: 10px;
   margin-bottom: 10px;
 
   label {
+    min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
     padding-left: 20px;
     margin-bottom: 0;
     font-weight: normal;
@@ -1672,7 +1688,7 @@ input[type="checkbox"] {
   &[disabled],
   &.disabled,
   fieldset[disabled] & {
-    cursor: not-allowed;
+    cursor: @cursor-disabled;
   }
 }
 // These classes are used directly on <label>s
@@ -1680,7 +1696,7 @@ input[type="checkbox"] {
 .checkbox-inline {
   &.disabled,
   fieldset[disabled] & {
-    cursor: not-allowed;
+    cursor: @cursor-disabled;
   }
 }
 // These classes are used on elements with <label> descendants
@@ -1689,7 +1705,7 @@ input[type="checkbox"] {
   &.disabled,
   fieldset[disabled] & {
     label {
-      cursor: not-allowed;
+      cursor: @cursor-disabled;
     }
   }
 }
@@ -1720,12 +1736,14 @@ input[type="checkbox"] {
 // Build on `.form-control` with modifier classes to decrease or increase the
 // height and font-size of form controls.
 
-.input-sm {
-  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+.input-sm,
+.form-group-sm .form-control {
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
 }
 
-.input-lg {
-  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+.input-lg,
+.form-group-lg .form-control {
+  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
 }
 
 
@@ -1745,7 +1763,7 @@ input[type="checkbox"] {
 // Feedback icon (requires .glyphicon classes)
 .form-control-feedback {
   position: absolute;
-  top: (@line-height-computed + 5); // Height of the `label` and its margin
+  top: 0;
   right: 0;
   z-index: 2; // Ensure icon is above input groups
   display: block;
@@ -1753,6 +1771,7 @@ input[type="checkbox"] {
   height: @input-height-base;
   line-height: @input-height-base;
   text-align: center;
+  pointer-events: none;
 }
 .input-lg + .form-control-feedback {
   width: @input-height-large;
@@ -1776,10 +1795,15 @@ input[type="checkbox"] {
   .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
 }
 
+// Reposition feedback icon if input has visible label above
+.has-feedback label {
 
-// Reposition feedback icon if label is hidden with "screenreader only" state
-.has-feedback label.sr-only ~ .form-control-feedback {
-  top: 0;
+  & ~ .form-control-feedback {
+     top: (@line-height-computed + 5); // Height of the `label` and its margin
+  }
+  &.sr-only ~ .form-control-feedback {
+     top: 0;
+  }
 }
 
 
@@ -1794,7 +1818,6 @@ input[type="checkbox"] {
   margin-bottom: 10px;
   color: lighten(@text-color, 25%); // lighten the text some for contrast
 }
-
 
 
 // Inline forms
@@ -1824,6 +1847,11 @@ input[type="checkbox"] {
       display: inline-block;
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
+    }
+
+    // Make static controls behave like regular ones
+    .form-control-static {
+      display: inline-block;
     }
 
     .input-group {
@@ -1867,10 +1895,7 @@ input[type="checkbox"] {
       margin-left: 0;
     }
 
-    // Validation states
-    //
-    // Reposition the icon because it's now within a grid column and columns have
-    // `position: relative;` on them. Also accounts for the grid gutter padding.
+    // Re-override the feedback icon.
     .has-feedback .form-control-feedback {
       top: 0;
     }
@@ -1923,7 +1948,6 @@ input[type="checkbox"] {
   // Reposition the icon because it's now within a grid column and columns have
   // `position: relative;` on them. Also accounts for the grid gutter padding.
   .has-feedback .form-control-feedback {
-    top: 0;
     right: (@grid-gutter-width / 2);
   }
 
@@ -1937,18 +1961,12 @@ input[type="checkbox"] {
         padding-top: ((@padding-large-vertical * @line-height-large) + 1);
       }
     }
-    .form-control {
-      &:extend(.input-lg);
-    }
   }
   .form-group-sm {
     @media (min-width: @screen-sm-min) {
       .control-label {
         padding-top: (@padding-small-vertical + 1);
       }
-    }
-    .form-control {
-      &:extend(.input-sm);
     }
   }
 }
@@ -1970,6 +1988,7 @@ input[type="checkbox"] {
   font-weight: @btn-font-weight;
   text-align: center;
   vertical-align: middle;
+  touch-action: manipulation;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
@@ -1980,13 +1999,15 @@ input[type="checkbox"] {
   &,
   &:active,
   &.active {
-    &:focus {
+    &:focus,
+    &.focus {
       .tab-focus();
     }
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.focus {
     color: @btn-default-color;
     text-decoration: none;
   }
@@ -2001,7 +2022,7 @@ input[type="checkbox"] {
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    cursor: not-allowed;
+    cursor: @cursor-disabled;
     pointer-events: none; // Future-proof disabling of clicks
     .opacity(.65);
     .box-shadow(none);
@@ -2043,11 +2064,11 @@ input[type="checkbox"] {
 .btn-link {
   color: @link-color;
   font-weight: normal;
-  cursor: pointer;
   border-radius: 0;
 
   &,
   &:active,
+  &.active,
   &[disabled],
   fieldset[disabled] & {
     background-color: transparent;
@@ -2152,7 +2173,8 @@ input[type="button"] {
 // Individual icons
 .glyphicon-asterisk               { &:before { content: "\2a"; } }
 .glyphicon-plus                   { &:before { content: "\2b"; } }
-.glyphicon-euro                   { &:before { content: "\20ac"; } }
+.glyphicon-euro,
+.glyphicon-eur                    { &:before { content: "\20ac"; } }
 .glyphicon-minus                  { &:before { content: "\2212"; } }
 .glyphicon-cloud                  { &:before { content: "\2601"; } }
 .glyphicon-envelope               { &:before { content: "\2709"; } }
@@ -2554,7 +2576,6 @@ input[type="button"] {
 }
 
 
-
 // Justified button groups
 // ----------------------
 
@@ -2582,17 +2603,25 @@ input[type="button"] {
 // Checkbox and radio options
 //
 // In order to support the browser's form validation feedback, powered by the
-// `required` attribute, we have to "hide" the inputs via `opacity`. We cannot
-// use `display: none;` or `visibility: hidden;` as that also hides the popover.
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
 // This way, we ensure a DOM element is visible to position the popover from.
 //
-// See https://github.com/twbs/bootstrap/pull/12794 for more.
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
 
-[data-toggle="buttons"] > .btn > input[type="radio"],
-[data-toggle="buttons"] > .btn > input[type="checkbox"] {
-  position: absolute;
-  z-index: -1;
-  .opacity(0);
+[data-toggle="buttons"] {
+  > .btn,
+  > .btn-group > .btn {
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0,0,0,0);
+      pointer-events: none;
+    }
+  }
 }
 
 
@@ -2806,7 +2835,7 @@ input[type="button"] {
         color: @nav-disabled-link-hover-color;
         text-decoration: none;
         background-color: transparent;
-        cursor: not-allowed;
+        cursor: @cursor-disabled;
       }
     }
   }
@@ -2993,9 +3022,11 @@ input[type="button"] {
 .tab-content {
   > .tab-pane {
     display: none;
+    visibility: hidden;
   }
   > .active {
     display: block;
+    visibility: visible;
   }
 }
 
@@ -3069,7 +3100,6 @@ input[type="button"] {
 
 .affix {
   position: fixed;
-  .translate3d(0, 0, 0);
 }
 
 
@@ -3144,6 +3174,7 @@ input[type="button"] {
 
     &.collapse {
       display: block !important;
+      visibility: visible !important;
       height: auto !important;
       padding-bottom: 0; // Override default setting
       overflow: visible !important;
@@ -3169,7 +3200,7 @@ input[type="button"] {
   .navbar-collapse {
     max-height: @navbar-collapse-max-height;
 
-    @media (max-width: @screen-xs-min) and (orientation: landscape) {
+    @media (max-device-width: @screen-xs-min) and (orientation: landscape) {
       max-height: 200px;
     }
   }
@@ -3218,7 +3249,6 @@ input[type="button"] {
   right: 0;
   left: 0;
   z-index: @zindex-navbar-fixed;
-  .translate3d(0, 0, 0);
 
   // Undo the rounded corners
   @media (min-width: @grid-float-breakpoint) {
@@ -3248,6 +3278,10 @@ input[type="button"] {
   &:hover,
   &:focus {
     text-decoration: none;
+  }
+
+  > img {
+    display: block;
   }
 
   @media (min-width: @grid-float-breakpoint) {
@@ -3348,23 +3382,7 @@ input[type="button"] {
         padding-bottom: @navbar-padding-vertical;
       }
     }
-
-    &.navbar-right:last-child {
-      margin-right: -@navbar-padding-horizontal;
-    }
   }
-}
-
-
-// Component alignment
-//
-// Repurpose the pull utilities as their own navbar utilities to avoid specificity
-// issues with parents and chaining. Only do this when the navbar is uncollapsed
-// though so that navbar contents properly stack and align in mobile.
-
-@media (min-width: @grid-float-breakpoint) {
-  .navbar-left  { .pull-left(); }
-  .navbar-right { .pull-right(); }
 }
 
 
@@ -3388,6 +3406,10 @@ input[type="button"] {
   .form-group {
     @media (max-width: @grid-float-breakpoint-max) {
       margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -3403,11 +3425,6 @@ input[type="button"] {
     padding-top: 0;
     padding-bottom: 0;
     .box-shadow(none);
-
-    // Outdent the form if last child to line up with content down the page
-    &.navbar-right:last-child {
-      margin-right: -@navbar-padding-horizontal;
-    }
   }
 }
 
@@ -3452,13 +3469,30 @@ input[type="button"] {
     float: left;
     margin-left: @navbar-padding-horizontal;
     margin-right: @navbar-padding-horizontal;
+  }
+}
 
-    // Outdent the form if last child to line up with content down the page
-    &.navbar-right:last-child {
+
+// Component alignment
+//
+// Repurpose the pull utilities as their own navbar utilities to avoid specificity
+// issues with parents and chaining. Only do this when the navbar is uncollapsed
+// though so that navbar contents properly stack and align in mobile.
+//
+// Declared after the navbar components to ensure more specificity on the margins.
+
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-left  { .pull-left(); }
+  .navbar-right {
+    .pull-right();
+    margin-right: -@navbar-padding-horizontal;
+
+    ~ .navbar-right {
       margin-right: 0;
     }
   }
 }
+
 
 // Alternate navbars
 // --------------------------------------------------
@@ -3835,7 +3869,7 @@ input[type="button"] {
       color: @pagination-disabled-color;
       background-color: @pagination-disabled-bg;
       border-color: @pagination-disabled-border;
-      cursor: not-allowed;
+      cursor: @cursor-disabled;
     }
   }
 }
@@ -3906,10 +3940,9 @@ input[type="button"] {
     > span {
       color: @pager-disabled-color;
       background-color: @pager-bg;
-      cursor: not-allowed;
+      cursor: @cursor-disabled;
     }
   }
-
 }
 
 
@@ -4048,7 +4081,7 @@ input[type="button"] {
 
 
 .jumbotron {
-  padding: @jumbotron-padding;
+  padding: @jumbotron-padding (@jumbotron-padding / 2);
   margin-bottom: @jumbotron-padding;
   color: @jumbotron-color;
   background-color: @jumbotron-bg;
@@ -4067,7 +4100,8 @@ input[type="button"] {
     border-top-color: darken(@jumbotron-bg, 10%);
   }
 
-  .container & {
+  .container &,
+  .container-fluid & {
     border-radius: @border-radius-large; // Only round corners at higher resolutions if contained in a container
   }
 
@@ -4076,8 +4110,7 @@ input[type="button"] {
   }
 
   @media screen and (min-width: @screen-sm-min) {
-    padding-top:    (@jumbotron-padding * 1.6);
-    padding-bottom: (@jumbotron-padding * 1.6);
+    padding: (@jumbotron-padding * 1.6) 0;
 
     .container & {
       padding-left:  (@jumbotron-padding * 2);
@@ -4108,7 +4141,7 @@ input[type="button"] {
   background-color: @thumbnail-bg;
   border: 1px solid @thumbnail-border;
   border-radius: @thumbnail-border-radius;
-  .transition(all .2s ease-in-out);
+  .transition(border .2s ease-in-out);
 
   > img,
   a > img {
@@ -4227,7 +4260,6 @@ input[type="button"] {
 }
 
 
-
 // Bar itself
 // -------------------------
 
@@ -4237,7 +4269,7 @@ input[type="button"] {
   height: @line-height-computed;
   margin-bottom: @line-height-computed;
   background-color: @progress-bg;
-  border-radius: @border-radius-base;
+  border-radius: @progress-border-radius;
   .box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
 }
 
@@ -4275,23 +4307,6 @@ input[type="button"] {
   .animation(progress-bar-stripes 2s linear infinite);
 }
 
-// Account for lower percentages
-.progress-bar {
-  &[aria-valuenow="1"],
-  &[aria-valuenow="2"] {
-    min-width: 30px;
-  }
-
-  &[aria-valuenow="0"] {
-    color: @gray-light;
-    min-width: 30px;
-    background-color: transparent;
-    background-image: none;
-    box-shadow: none;
-  }
-}
-
-
 
 // Variations
 // -------------------------
@@ -4315,57 +4330,48 @@ input[type="button"] {
 
 
 // @import "bootstrap/less/media.less"
-// Media objects
-// Source: http://stubbornella.org/content/?p=497
-// --------------------------------------------------
-
-
-// Common styles
-// -------------------------
-
-// Clear the floats
-.media,
-.media-body {
-  overflow: hidden;
-  zoom: 1;
-}
-
-// Proper spacing between instances of .media
-.media,
-.media .media {
+.media {
+  // Proper spacing between instances of .media
   margin-top: 15px;
-}
-.media:first-child {
-  margin-top: 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
-// For images and videos, set to block
-.media-object {
-  display: block;
+.media-right,
+.media > .pull-right {
+  padding-left: 10px;
+}
+
+.media-left,
+.media > .pull-left {
+  padding-right: 10px;
+}
+
+.media-left,
+.media-right,
+.media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.media-middle {
+  vertical-align: middle;
+}
+
+.media-bottom {
+  vertical-align: bottom;
 }
 
 // Reset margins on headings for tighter default spacing
 .media-heading {
-  margin: 0 0 5px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
-
-
-// Media image alignment
-// -------------------------
-
-.media {
-  > .pull-left {
-    margin-right: 10px;
-  }
-  > .pull-right {
-    margin-left: 10px;
-  }
-}
-
 
 // Media list variation
-// -------------------------
-
+//
 // Undo default ul/ol styles
 .media-list {
   padding-left: 0;
@@ -4451,6 +4457,7 @@ a.list-group-item {
   &.disabled:focus {
     background-color: @list-group-disabled-bg;
     color: @list-group-disabled-color;
+    cursor: @cursor-disabled;
 
     // Force color to inherit for custom content
     .list-group-item-heading {
@@ -4568,7 +4575,8 @@ a.list-group-item {
 // any kind of custom content between the two.
 
 .panel {
-  > .list-group {
+  > .list-group,
+  > .panel-collapse > .list-group {
     margin-bottom: 0;
 
     .list-group-item {
@@ -4612,6 +4620,11 @@ a.list-group-item {
   > .table-responsive > .table,
   > .panel-collapse > .table {
     margin-bottom: 0;
+
+    caption {
+      padding-left: @panel-body-padding;
+      padding-right: @panel-body-padding;
+    }
   }
   // Add border top radius for first one
   > .table:first-child,
@@ -4621,6 +4634,9 @@ a.list-group-item {
     > thead:first-child,
     > tbody:first-child {
       > tr:first-child {
+        border-top-left-radius: (@panel-border-radius - 1);
+        border-top-right-radius: (@panel-border-radius - 1);
+
         td:first-child,
         th:first-child {
           border-top-left-radius: (@panel-border-radius - 1);
@@ -4640,6 +4656,9 @@ a.list-group-item {
     > tbody:last-child,
     > tfoot:last-child {
       > tr:last-child {
+        border-bottom-left-radius: (@panel-border-radius - 1);
+        border-bottom-right-radius: (@panel-border-radius - 1);
+
         td:first-child,
         th:first-child {
           border-bottom-left-radius: (@panel-border-radius - 1);
@@ -4652,7 +4671,9 @@ a.list-group-item {
     }
   }
   > .panel-body + .table,
-  > .panel-body + .table-responsive {
+  > .panel-body + .table-responsive,
+  > .table + .panel-body,
+  > .table-responsive + .panel-body {
     border-top: 1px solid @table-border-color;
   }
   > .table > tbody:first-child > tr:first-child th,
@@ -4714,6 +4735,7 @@ a.list-group-item {
   .panel {
     margin-bottom: 0;
     border-radius: @panel-border-radius;
+
     + .panel {
       margin-top: 5px;
     }
@@ -4721,10 +4743,13 @@ a.list-group-item {
 
   .panel-heading {
     border-bottom: 0;
-    + .panel-collapse > .panel-body {
+
+    + .panel-collapse > .panel-body,
+    + .panel-collapse > .list-group {
       border-top: 1px solid @panel-inner-border;
     }
   }
+
   .panel-footer {
     border-top: 0;
     + .panel-collapse .panel-body {
@@ -4752,6 +4777,45 @@ a.list-group-item {
 }
 .panel-danger {
   .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}
+
+
+
+// @import "bootstrap/less/responsive-embed.less"
+// Embeds responsive
+//
+// Credit: Nicolas Gallagher and SUIT CSS.
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+
+  .embed-responsive-item,
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+  }
+
+  // Modifier class for 16:9 aspect ratio
+  &.embed-responsive-16by9 {
+    padding-bottom: 56.25%;
+  }
+
+  // Modifier class for 4:3 aspect ratio
+  &.embed-responsive-4by3 {
+    padding-bottom: 75%;
+  }
 }
 
 
@@ -4846,8 +4910,9 @@ a.list-group-item {
 
 .collapse {
   display: none;
+  visibility: hidden;
 
-  &.in      { display: block; }
+  &.in      { display: block; visibility: visible; }
   tr&.in    { display: table-row; }
   tbody&.in { display: table-row-group; }
 }
@@ -4856,7 +4921,9 @@ a.list-group-item {
   position: relative;
   height: 0;
   overflow: hidden;
-  .transition(height .35s ease);
+  .transition-property(~"height, visibility");
+  .transition-duration(.35s);
+  .transition-timing-function(ease);
 }
 
 
@@ -4967,16 +5034,15 @@ a.list-group-item {
   &:focus {
     color: @dropdown-link-disabled-color;
   }
-}
-// Nuke hover/focus effects
-.dropdown-menu > .disabled > a {
+
+  // Nuke hover/focus effects
   &:hover,
   &:focus {
     text-decoration: none;
     background-color: transparent;
     background-image: none; // Remove CSS gradient
     .reset-filter();
-    cursor: not-allowed;
+    cursor: @cursor-disabled;
   }
 }
 
@@ -5079,7 +5145,6 @@ a.list-group-item {
 
 
 
-
 // @import "bootstrap/less/modals.less"
 //
 // Modals
@@ -5113,10 +5178,10 @@ a.list-group-item {
 
   // When fading in the modal, animate it to slide down
   &.fade .modal-dialog {
-    .translate3d(0, -25%, 0);
+    .translate(0, -25%);
     .transition-transform(~"0.3s ease-out");
   }
-  &.in .modal-dialog { .translate3d(0, 0, 0) }
+  &.in .modal-dialog { .translate(0, 0) }
 }
 .modal-open .modal {
   overflow-x: hidden;
@@ -5150,7 +5215,6 @@ a.list-group-item {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: @zindex-modal-background;
   background-color: @modal-backdrop-bg;
   // Fade for backdrop
   &.fade { .opacity(0); }
@@ -5347,7 +5411,11 @@ a.list-group-item {
   display: none;
   max-width: @popover-max-width;
   padding: 1px;
-  text-align: left; // Reset given new insertion method
+  // Reset font and text propertes given new insertion method
+  font-size: @font-size-base;
+  font-weight: normal;
+  line-height: @line-height-base;
+  text-align: left;
   background-color: @popover-bg;
   background-clip: padding-box;
   border: 1px solid @popover-fallback-border-color;
@@ -5369,8 +5437,6 @@ a.list-group-item {
   margin: 0; // reset heading margin
   padding: 8px 14px;
   font-size: @font-size-base;
-  font-weight: normal;
-  line-height: 18px;
   background-color: @popover-title-bg;
   border-bottom: 1px solid darken(@popover-title-bg, 5%);
   border-radius: (@border-radius-large - 1) (@border-radius-large - 1) 0 0;
@@ -5465,7 +5531,6 @@ a.list-group-item {
       bottom: -@popover-arrow-width;
     }
   }
-
 }
 
 
@@ -5496,6 +5561,30 @@ a.list-group-item {
     > a > img {
       &:extend(.img-responsive);
       line-height: 1;
+    }
+
+    // WebKit CSS3 transforms for supported devices
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      transition: transform .6s ease-in-out;
+      backface-visibility: hidden;
+      perspective: 1000;
+
+      &.next,
+      &.active.right {
+        transform: translate3d(100%, 0, 0);
+        left: 0;
+      }
+      &.prev,
+      &.active.left {
+        transform: translate3d(-100%, 0, 0);
+        left: 0;
+      }
+      &.next.left,
+      &.prev.right,
+      &.active {
+        transform: translate3d(0, 0, 0);
+        left: 0;
+      }
     }
   }
 
