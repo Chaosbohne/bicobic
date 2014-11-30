@@ -42,34 +42,3 @@ PostIndexController = RouteController.extend({
     this.render();
   }   
 });
-
-/*
-PostIndexController = RouteController.extend({
-  yieldTemplates: {
-    'Header': {to: 'Header'},
-    'Footer': {to: 'Footer'}
-  },  
-  
-  findQuery: function() {
-    return {strippedTitle: this.params.name};
-  },
-  
-  waitOn: function () {
-    return [PostIndexSubs.subscribe('post_index_by_name', this.params.name)];
-  },
-
-  post: function() {
-    return Posts.findOne(this.findQuery());
-  },
-  
-  data: function () {
-    return {
-      post : this.post()
-    };
-  },
-
-  action: function () {
-    this.render();
-  }   
-});
-*/

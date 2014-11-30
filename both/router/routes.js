@@ -14,10 +14,13 @@ beforeHooks = {
   isNotLoggedIn: function() {
     if(!(Meteor.loggingIn() || Meteor.user())) {
       Router.go('posts.index');
+    }else {
+      this.next();
     }
   },
   syntaxHighlighting: function() {
     $('body').addClass('language-javascript');
+    this.next();
   }  
 }
 

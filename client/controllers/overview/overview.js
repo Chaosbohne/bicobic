@@ -13,12 +13,13 @@ OverviewController = RouteController.extend({
   action: function () {
     this.render();
   },
-  
+
   onBeforeAction: function() {
     Session.setDefault('contactFormButtonMessage', 'Send Message');
     Session.setDefault('contactNameError', null);
     Session.setDefault('contactEmailError', null);
     Session.setDefault('contactMessageError', null);   
+    this.next();
   },
   
   onAfterAction: function () {
@@ -27,6 +28,11 @@ OverviewController = RouteController.extend({
     // can manipulate it via jQuery, if you skip this part the HTML element you
     // want to scroll to might not yet be present in the DOM (this is probably
     // why your code fails in the first place)    
+
+    /*
+    Does not work with new ironrouter version with meteor v1
+    Iron:router automatically jumps to hash
+    
     if (this.params.hash) {
       Deps.afterFlush(_.bind(function() {
         var scrollTop = $("#" + this.params.hash).offset().top;
@@ -34,6 +40,7 @@ OverviewController = RouteController.extend({
           scrollTop: scrollTop
         });
       }, this));
-    }      
+    }
+    */
   }
 });

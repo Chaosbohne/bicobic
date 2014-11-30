@@ -38,6 +38,7 @@ EditIndexController = RouteController.extend({
   
   onRun: function() {
    Session.set('editSaveStatus', true);
+    this.next();
   },
   
   onStop :function() {
