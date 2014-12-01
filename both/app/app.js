@@ -32,11 +32,6 @@ Config = {
     //email: Meteor.settings && Meteor.settings.private && Meteor.settings.private.admin && Meteor.settings.private.admin.email || '',
     //password: Meteor.settings && Meteor.settings.private && Meteor.settings.private.admin && Meteor.settings.private.admin.password || '',
     
-    //##### EMAIL
-    //username: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.username || '',
-    //password: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.password || '',
-    //server: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.server || '',
-    //port: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.port || '',    
     
     //##### Google Analytics
     //See https://github.com/reywood/meteor-iron-router-ga/blob/master/lib/ga.js
@@ -50,20 +45,6 @@ this.Config = Config;
 
 
 if(Meteor.isServer) {
-  var email = {
-    username: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.username || '',
-    password: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.password || '',
-    server: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.server || '',
-    port: Meteor.settings && Meteor.settings.private && Meteor.settings.private.email && Meteor.settings.private.email.port || ''
-  };
-
-  if(Config.hasValidStringProperty(email.username) && 
-     Config.hasValidStringProperty(email.password) &&
-     Config.hasValidStringProperty(email.server) &&
-     Config.hasValidStringProperty(email.port)
-    ) {    
-    process.env.MAIL_URL = 'smtp://' + encodeURIComponent(email.username) + ':' + encodeURIComponent(email.password) + '@' + encodeURIComponent(email.server) + ':' + email.port;
-  }       
   
   var aws = {
     aws_access_key_id : Meteor.settings && Meteor.settings.private && Meteor.settings.private.aws && Meteor.settings.private.aws.aws_access_key_id || '',
