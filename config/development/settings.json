@@ -31,7 +31,8 @@
       "username": "",
       "password": "",
       "server" : "",
-      "port" : ""
+      "port" : "",
+      "receiver":""
     },
     "aws": {
       "bucket_images_name": "<YOUR IMAGE BUCKET NAME>",

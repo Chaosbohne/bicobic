@@ -9,41 +9,7 @@
           <p  class="waypoint fade-right">You have questions about meteor? You want to have a project realized? You need some consulting if meteor.js is your choice? You want me to give a talk?
              For this and anything else use my humble contact form because it is made for you!</p>
         </div>
-        <form id="contact-form" class="col-sm-6 col-md-offset-1 col-md-6 waypoint fade-right">
-          <div class="form-group">
-            <label class="control-label" for="contact-name">Name</label>
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon"><span class="glyphicon glyphicon-user glyph-color"></span></span>
-              <input name="contactName" type="text" class="form-control" placeholder="Your name">
-            </div>          
-            {{#if contactNameError}}
-              <p class="help-block">{{contactNameError}}</p>
-            {{/if}}
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="contact-email">Your E-Mail</label>
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope glyph-color"></span></span>
-              <input name="contactEmail" type="text" class="form-control" placeholder="Your email">
-            </div>        
-            {{#if contactEmailError}}
-              <p class="help-block">{{contactEmailError}}</p>
-            {{/if}}            
-          </div>   
-          <div class="form-group">
-            <label class="control-label" for="contact-message">Your Message</label>
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon"><span class="glyphicon glyphicon-comment glyph-color"></span></span>
-              <textarea name="contactMessage" class="form-control custom-control" placeholder="Your message"></textarea>
-            </div>  
-            {{#if contactMessageError}}
-              <p class="help-block">{{contactMessageError}}</p>
-            {{/if}}            
-          </div>          
-          <div>
-            <button name="submit" type="submit" class="btn btn-block btn-primary btn-lg">{{contactFormButtonMessage}}</button>
-          </div>
-        </form>
+        {{> ContactForm class="col-sm-6 col-md-offset-1 col-md-6 waypoint fade-right"}}
       </div>
     </div>
   </section>

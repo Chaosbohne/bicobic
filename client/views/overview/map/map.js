@@ -101,6 +101,7 @@ Template.Map.rendered = function () {
     zoom: 14,
     scrollwheel: false,
     panControl: false,
+    draggable: false,
     zoomControl: false,
     scaleControl: false,
     mapTypeControl: false,

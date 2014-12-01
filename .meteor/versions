@@ -1,6 +1,7 @@
 accounts-base@1.1.2
 accounts-password@1.0.4
 alanning:roles@1.2.13
+aldeed:autoform@4.0.5
 aldeed:collection2@2.2.0
 aldeed:simple-schema@1.1.0
 application-configuration@1.0.3
@@ -30,6 +31,7 @@ cfs:storage-adapter@0.0.0
 cfs:tempstore@0.0.2
 cfs:upload-http@0.0.2
 cfs:worker@0.0.0
+chaosbohne:simplecontactform@0.1.0
 check@1.0.2
 chuangbo:cookie@1.1.0
 coffeescript@1.0.4
@@ -72,6 +74,7 @@ minimongo@1.0.5
 mobile-status-bar@1.0.1
 mongo-livedata@1.0.6
 mongo@1.0.8
+mrt:moment@2.6.0
 multiply:iron-router-progress@1.0.0
 nemo64:bootstrap-data@3.3.0_1
 nemo64:bootstrap@3.3.0_1
