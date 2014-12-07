@@ -18,7 +18,6 @@ Images.allow({
     return (userId && doc.metadata.owner === userId);
   },
   download: function(userId) {
-    console.log(userId);
     return true;
   },
   fetch: []
