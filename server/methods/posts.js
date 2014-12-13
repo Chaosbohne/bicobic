@@ -13,9 +13,7 @@ Meteor.methods({
   '/app/posts/create': function() {
     if (Roles.userIsInRole(this.userId, ['admin'])){
       return Posts.insert({});    
-    }else {
-      this.stop();
-      return;  
     }
+    return this.stop();
   }
 });

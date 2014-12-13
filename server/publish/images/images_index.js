@@ -8,8 +8,7 @@ Meteor.publish('images_index', function () {
       return Images.find();
     }
   
-    this.stop();
-    return;  
+    return this.stop();  
 });
 
 Meteor.publish('image_index', function (imageId) {
@@ -18,6 +17,5 @@ Meteor.publish('image_index', function (imageId) {
     return Images.find({ _id : imageId });
   }
 
-  this.stop();
-  return;  
+  return this.stop();
 });

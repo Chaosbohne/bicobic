@@ -2,10 +2,9 @@
 Meteor.publish('post_index_by_name', function (name) {
   if(_.isString(name)) {
     return Posts.find({strippedTitle: name});
-  }else {
-    this.stop();
-    return;
   }
+  
+  return this.stop();
 });
 
 Meteor.publish('post_index_by_name_or_id', function(idOrName){
@@ -15,17 +14,15 @@ Meteor.publish('post_index_by_name_or_id', function(idOrName){
       return Posts.find({strippedTitle: idOrName})
     }
     return Posts.find({_id: idOrName})
-  }else {
-    this.stop();
-    return;
   }
+  
+  return this.stop();
 });
 
 Meteor.publish('post_index_by_id', function (id) {
   if(_.isString(id)) {  
     return Posts.find({_id: id});
-  }else {
-    this.stop();
-    return;
-  }  
+  }
+   
+  return this.stop();
 });
