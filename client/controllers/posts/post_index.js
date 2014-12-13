@@ -7,11 +7,11 @@ PostIndexController = RouteController.extend({
   },  
   
   findQueryByName: function() {
-    return {strippedTitle: this.params.name, reactive: false};
+    return {strippedTitle: this.params.name};
   },
   
   findQueryById: function() {
-    return {_id: this.params.name, reactive: false};
+    return {_id: this.params.name};
   },
   
   waitOn: function () {
